@@ -1,3 +1,7 @@
+body {
+    color: #3f3f3f;
+}
+
 .navbar,
 .dropdown-menu {
     border-bottom: 1px solid grey;
@@ -40,5 +44,5 @@
 
 .nav li:hover,
 .nav li.active {
-    border-bottom: #C4E17F 3px solid;
+    border-bottom: # 3px solid;
 }

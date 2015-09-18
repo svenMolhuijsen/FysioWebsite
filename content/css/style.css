@@ -2,13 +2,13 @@ body {
     color: #3f3f3f;
 }
 
-.navbar,
-.dropdown-menu {
+.navbar {
     border-bottom: 1px solid grey;
 }
 
 .dropdown-menu {
-    background: #F0F0F0;
+    border: 1px solid grey;
+    border-top: transparent;
 }
 
 .nav>li>a,
@@ -34,7 +34,7 @@ body {
 .dropdown-menu>li>a,
 .dropdown-menu>li>a:focus,
 .dropdown-menu>li>a:hover {
-    color: #fff;
+    color: #3f3f3f;
 }
 
 .dropdown-menu {
@@ -44,5 +44,5 @@ body {
 
 .nav li:hover,
 .nav li.active {
-    border-bottom: # 3px solid;
+    border-bottom: #00A7D4 3px solid;
 }

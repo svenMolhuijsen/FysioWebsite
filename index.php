@@ -9,6 +9,9 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="content/css/style.css" />
+    <link href="content/css/roboto.min.css" rel="stylesheet">
+    <link href="content/css/material.min.css" rel="stylesheet">
+    <link href="content/css/ripples.min.css" rel="stylesheet">
 </head>
 
 <body>

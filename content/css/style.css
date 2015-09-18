@@ -1,0 +1,48 @@
+body {
+    color: #3f3f3f;
+}
+
+.navbar {
+    border-bottom: 1px solid grey;
+}
+
+.dropdown-menu {
+    border: 1px solid grey;
+    border-top: transparent;
+}
+
+.nav>li>a,
+.dropdown-menu>li>a:focus,
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a,
+.dropdown-menu>li {
+    border-bottom: 3px solid transparent;
+}
+
+.nav>li>a:focus,
+.nav>li>a:hover,
+.nav .open>a,
+.nav .open>a:focus,
+.nav .open>a:hover,
+.dropdown-menu>li>a:focus,
+.dropdown-menu>li>a:hover {
+    border-bottom: 3px solid transparent;
+    background: none;
+}
+
+.navbar a,
+.dropdown-menu>li>a,
+.dropdown-menu>li>a:focus,
+.dropdown-menu>li>a:hover {
+    color: #3f3f3f;
+}
+
+.dropdown-menu {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.nav li:hover,
+.nav li.active {
+    border-bottom: #00A7D4 3px solid;
+}

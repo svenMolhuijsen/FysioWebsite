@@ -57,10 +57,11 @@
                         <ul class="nav navbar-nav pull-right">
                             <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ingelogd  <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Mijn Profiel</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Mijn Profiel</a></li>
+                                    <li class=""><a href="#">Uitloggen</a></li>
+
                                 </ul>
                             </li>
-                            <li class=""><a href="#">Uitloggen</a></li>
                         </ul>
                     </div>
                 </div>

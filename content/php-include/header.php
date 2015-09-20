@@ -8,10 +8,10 @@
     <title></title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="content/css/style.css" />
     <link href="content/css/roboto.min.css" rel="stylesheet">
     <link href="content/css/material.min.css" rel="stylesheet">
     <link href="content/css/ripples.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="content/css/style.css" />
 </head>
 
 <body>
@@ -47,7 +47,7 @@
                             </li>
                             <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Chat<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Nieuw</a></li>
+                                    <li><a href="chat.php">Nieuw</a></li>
                                     <li><a href="#">Gelezen</a></li>
                                     <li><a href="#">Archief</a></li>
 

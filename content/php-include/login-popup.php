@@ -3,7 +3,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header" align="center">
-                <img class="img-circle" id="img_logo" src="http://bootsnipp.com/img/logo.jpg">
+                <img class="img" id="img_logo" src="http://www.fysiofitcare.nl/wp-content/themes/creativehumans/images/logo-fysiofitcare.png">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
@@ -51,7 +51,7 @@
                         <input id="lost_email" class="form-control" type="text" placeholder="E-Mail (type ERROR for error effect)" required>
                         <br>
                         <button type="submit" class="btn btn-primary ">Verstuur</button>
-                        <button id="lost_login_btn" type="button" class="btn btn-default">Log in</button>
+                        <button id="lost_login_btn" type="button" class="btn btn-default">Inloggen</button>
                         <button id="lost_register_btn" type="button" class="btn btn-default">Registreren</button>
                     </div>
 
@@ -71,7 +71,7 @@
                         <input id="register_email" class="form-control" type="text" placeholder="E-Mail" required>
                         <input id="register_password" class="form-control" type="password" placeholder="Wachtwoord" required>
                         <button type="submit" class="btn btn-primary">Registreer</button>
-                        <button id="register_login_btn" type="button" class="btn btn-default">Log In</button>
+                        <button id="register_login_btn" type="button" class="btn btn-default">Inloggen</button>
                         <button id="register_lost_btn" type="button" class="btn btn-default">Wachtwoord vergeten?</button>
                     </div>
 

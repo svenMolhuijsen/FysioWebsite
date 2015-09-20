@@ -7,10 +7,11 @@
        var $modalAnimateTime = 300;
        var $msgAnimateTime = 150;
        var $msgShowTime = 2000;
-
+       // SWITCH OM TE BEPALEN WELK FORMULIER ER WORD VERSTUURD
        $("form").submit(function () {
            switch (this.id) {
            case "login-form":
+                   //TODO: AJAX VOOR VERIFICATIE GEBRUIKER
                var $lg_username = $('#login_username').val();
                var $lg_password = $('#login_password').val();
                if ($lg_username == "ERROR") {
@@ -21,6 +22,7 @@
                return false;
                break;
            case "lost-form":
+                    //TODO: AJAX VOOR HERSTEL WACHTWOORD
                var $ls_email = $('#lost_email').val();
                if ($ls_email == "ERROR") {
                    msgChange($('#div-lost-msg'), $('#icon-lost-msg'), $('#text-lost-msg'), "error", "glyphicon-remove", "Send error");
@@ -30,6 +32,7 @@
                return false;
                break;
            case "register-form":
+
                var $rg_username = $('#register_username').val();
                var $rg_email = $('#register_email').val();
                var $rg_password = $('#register_password').val();
@@ -45,7 +48,8 @@
            }
            return false;
        });
-
+    //ANIMATIES
+       // SWITCHT TUSSEN FORMULIEREN
        $('#login_register_btn').click(function () {
            modalAnimate($formLogin, $formRegister)
        });

@@ -12,79 +12,76 @@
                     <ul class="list-group " id="contact-list">
                         <li class="list-group-item alert-bg">
                             <a href="#">
-                                <div class=" col-xs-2 col-sm-3 col-md-2">
+                                <div class="col-xs-12">
                                     <div class="contact-identifier">
                                         JD
                                     </div>
-                                </div>
-                                <div class="col-xs-9 col-sm-7 col-md-9">
-                                    <span class="name"><b>John Doe</b></span>
-                                    <br/>
-                                    <span class="recent-message">Dit is een Spoedbericht met notificatie</span>
-                                    <br/>
-                                    <span class="glyphicon glyphicon-map-marker" data-toggle="tooltip" title="Prins mauritslaan, Beek"></span>
-
-                                    </span>
-                                    <span class="glyphicon glyphicon-earphone" data-toggle="tooltip" title="06 341 94 230"></span>
-
-                                    </span>
-                                    <span class="glyphicon glyphicon-envelope" data-toggle="tooltip" title="JD@gmail.com"></span>
-                                    </span>
-                                </div>
-                                <div class="col-xs-1">
                                     <span class="open-chat glyphicon glyphicon-chevron-right"></span>
+                                    <div class="contact-info">
+                                        <span class="name"><b>John Doe</b></span>
+                                        <br/>
+                                        <span class="recent-message">Dit is een spoedbericht met notificatie</span>
+                                        <br/>
+                                        <span class="glyphicon glyphicon-map-marker" data-toggle="tooltip" title="Prins mauritslaan, Beek"></span>
+
+                                        </span>
+                                        <span class="glyphicon glyphicon-earphone" data-toggle="tooltip" title="06 341 94 230"></span>
+
+                                        </span>
+                                        <span class="glyphicon glyphicon-envelope" data-toggle="tooltip" title="JD@gmail.com"></span>
+                                        </span>
+                                    </div>
+
                                 </div>
                             </a>
                         </li>
                         <li class="list-group-item">
                             <a href="#">
-                                <div class=" col-xs-2 col-sm-3 col-md-2">
+                                <div class="col-xs-12">
                                     <div class="contact-identifier">
                                         JD
                                     </div>
-                                </div>
-                                <div class="col-xs-9 col-sm-7 col-md-9">
-                                    <span class="name"><b>John Doe</b></span>
-                                    <br/>
-                                    <span class="recent-message">Dit is een recent Bericht</span>
-                                    <br/>
-                                    <span class="glyphicon glyphicon-map-marker" data-toggle="tooltip" title="Prins mauritslaan, Beek"></span>
-
-                                    </span>
-                                    <span class="glyphicon glyphicon-earphone" data-toggle="tooltip" title="06 341 94 230"></span>
-
-                                    </span>
-                                    <span class="glyphicon glyphicon-envelope" data-toggle="tooltip" title="JD@gmail.com"></span>
-                                    </span>
-                                </div>
-                                <div class="col-xs-1">
                                     <span class="open-chat glyphicon glyphicon-chevron-right"></span>
+                                    <div class="contact-info">
+                                        <span class="name"><b>John Doe</b></span>
+                                        <br/>
+                                        <span class="recent-message">Dit is een recent Bericht</span>
+                                        <br/>
+                                        <span class="glyphicon glyphicon-map-marker" data-toggle="tooltip" title="Prins mauritslaan, Beek"></span>
+
+                                        </span>
+                                        <span class="glyphicon glyphicon-earphone" data-toggle="tooltip" title="06 341 94 230"></span>
+
+                                        </span>
+                                        <span class="glyphicon glyphicon-envelope" data-toggle="tooltip" title="JD@gmail.com"></span>
+                                        </span>
+                                    </div>
+
                                 </div>
                             </a>
                         </li>
                         <li class="list-group-item">
                             <a href="#">
-                                <div class=" col-xs-2 col-sm-3 col-md-2">
+                                <div class="col-xs-12">
                                     <div class="contact-identifier">
                                         JD
                                     </div>
-                                </div>
-                                <div class="col-xs-9 col-sm-7 col-md-9">
-                                    <span class="name"><b>John Doe</b></span>
-                                    <br/>
-                                    <span class="recent-message">Dit is een recent Bericht</span>
-                                    <br/>
-                                    <span class="glyphicon glyphicon-map-marker" data-toggle="tooltip" title="Prins mauritslaan, Beek"></span>
-
-                                    </span>
-                                    <span class="glyphicon glyphicon-earphone" data-toggle="tooltip" title="06 341 94 230"></span>
-
-                                    </span>
-                                    <span class="glyphicon glyphicon-envelope" data-toggle="tooltip" title="JD@gmail.com"></span>
-                                    </span>
-                                </div>
-                                <div class="col-xs-1">
                                     <span class="open-chat glyphicon glyphicon-chevron-right"></span>
+                                    <div class="contact-info">
+                                        <span class="name"><b>John Doe</b></span>
+                                        <br/>
+                                        <span class="recent-message">Dit is een recent Bericht</span>
+                                        <br/>
+                                        <span class="glyphicon glyphicon-map-marker" data-toggle="tooltip" title="Prins mauritslaan, Beek"></span>
+
+                                        </span>
+                                        <span class="glyphicon glyphicon-earphone" data-toggle="tooltip" title="06 341 94 230"></span>
+
+                                        </span>
+                                        <span class="glyphicon glyphicon-envelope" data-toggle="tooltip" title="JD@gmail.com"></span>
+                                        </span>
+                                    </div>
+
                                 </div>
                             </a>
                         </li>
@@ -122,7 +119,7 @@
                             </div>
                         </div>
 
-                        <div>
+                        <div class="chat-window">
 
                         </div>
                     </div>

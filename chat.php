@@ -97,25 +97,36 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Chat</h3>
                     </div>
+
                     <div class="panel-body">
                         <div class="chat-options row">
-                            <div class="delete col-xs-3">
-                                vewijder
+                            <div class="col-xs-3">
+                                <a class="btn btn-danger btn-fab btn-raised" data-toggle="tooltip" title="Gesprek verwijderen">
+                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                </a>
                             </div>
-                            <div class="delete col-xs-3">
-                                archiveer
+                            <div class="col-xs-3">
+                                <a class="btn btn-warning btn-fab btn-raised" data-toggle="tooltip" title="Gesprek archieferen">
+                                    <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+                                </a>
                             </div>
-                            <div class="delete col-xs-3">
-                                upload media
+                            <div class="col-xs-3">
+                                <a class="btn btn-info btn-fab btn-raised " data-toggle="tooltip" title="Media uploaden">
+                                    <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"><br></span>
+                                </a>
                             </div>
-                            <div class="delete col-xs-3">
-                                standaard tekst
+                            <div class="col-xs-3">
+                                <a class="btn btn-success btn-fab btn-raised " data-toggle="tooltip" title="Standaadtekst invoegen">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                </a>
                             </div>
                         </div>
+
                         <div>
 
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

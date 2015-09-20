@@ -2,13 +2,14 @@
     margin-bottom: 70px;
 }
 
-a, a:hover{
+a,
+a:hover {
     color: #333;
     text-decoration: none
 }
 
 
-/*chat*/
+/*chat - contacten*/
 
 .list-group .list-group-item {
     padding: 10px 16px;
@@ -27,11 +28,11 @@ a, a:hover{
     color: rgba(0, 0, 0, 0.5);
     margin-top: auto;
     left: 50px;
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .contact-identifier {
@@ -50,3 +51,6 @@ a, a:hover{
 .chat-info {
     display: inline-block;
 }
+
+
+/*chat - tekstveld*/

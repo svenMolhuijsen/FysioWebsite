@@ -56,3 +56,22 @@ a:hover {
 
 
 /*chat - tekstveld*/
+
+.client {
+    background: #F8F8F8;
+}
+
+.msg {
+    padding: 0 15px 20px;
+}
+
+.chat-window {
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.load-more {
+    background: #116887;
+    color: white;
+    padding: 15px 0;
+}

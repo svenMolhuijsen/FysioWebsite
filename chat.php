@@ -118,7 +118,11 @@
                                 </a>
                             </div>
                         </div>
-
+                        <hr>
+                        <form>
+                            <textarea id="mytextarea"></textarea>
+                            <button type="submit" class="btn btn-primary right">Verstuur</button>
+                        </form>
                         <hr>
                         <ul class="list-group chat-window">
                             <li class="media msg client">

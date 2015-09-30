@@ -28,7 +28,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Fysiofitcare Potal</a>
+                        <a class="navbar-brand" href="#">Fysiofitcare Portal</a>
 
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
@@ -42,7 +42,7 @@
                             </li>
                             <li class=" dropdown"><a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gebruikers <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Clubs</a></li>
+                                    <li><a href="club-toevoegen.php">Clubs</a></li>
                                     <li><a href="#">Clienten</a></li>
                                 </ul>
                             </li>

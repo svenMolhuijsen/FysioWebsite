@@ -37,7 +37,7 @@
 
                             <li class=" dropdown"><a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">App inhoud <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="app-content.php">Wijzigen</a></li>
+                                    <li><a href="app-inhoud.php">Wijzigen</a></li>
                                 </ul>
                             </li>
                             <li class=" dropdown"><a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gebruikers <span class="caret"></span></a>

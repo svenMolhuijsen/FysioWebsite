@@ -18,7 +18,7 @@
                                     </div>
                                     <span class="open-chat glyphicon glyphicon-chevron-right"></span>
                                     <div class="contact-info">
-                                        <span class="name"><b>John Doe</b></span>
+                                        <span class="name"><b>John Doe</b></span><span class="label label-warning">niet toegewezen</span>
                                         <br/>
                                         <span class="recent-message">Dit is een spoedbericht met notificatie</span>
                                         <br/>
@@ -43,7 +43,7 @@
                                     </div>
                                     <span class="open-chat glyphicon glyphicon-chevron-right"></span>
                                     <div class="contact-info">
-                                        <span class="name"><b>John Doe</b></span>
+                                        <span class="name"><b>John Doe</b></span><span class="label label-primary">joop</span>
                                         <br/>
                                         <span class="recent-message">Dit is een recent Bericht</span>
                                         <br/>
@@ -68,7 +68,7 @@
                                     </div>
                                     <span class="open-chat glyphicon glyphicon-chevron-right"></span>
                                     <div class="contact-info">
-                                        <span class="name"><b>John Doe</b></span>
+                                        <span class="name"><b>John Doe</b></span><span class="label label-succes">truus</span>
                                         <br/>
                                         <span class="recent-message">Dit is een recent Bericht</span>
                                         <br/>
@@ -97,26 +97,29 @@
 
                     <div class="panel-body">
                         <div class="chat-options row">
-                            <div class="col-xs-3">
+                            <div class="col-sm-8">
                                 <a class="btn btn-danger btn-fab btn-raised" data-toggle="tooltip" title="Gesprek verwijderen">
                                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                 </a>
-                            </div>
-                            <div class="col-xs-3">
                                 <a class="btn btn-warning btn-fab btn-raised" data-toggle="tooltip" title="Gesprek archieferen">
                                     <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
                                 </a>
-                            </div>
-                            <div class="col-xs-3">
                                 <a class="btn btn-info btn-fab btn-raised " data-toggle="tooltip" title="Media uploaden">
                                     <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"><br></span>
                                 </a>
-                            </div>
-                            <div class="col-xs-3">
                                 <a class="btn btn-success btn-fab btn-raised " data-toggle="tooltip" title="Standaadtekst invoegen">
                                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                 </a>
                             </div>
+                            <div class="col-sm-4">
+                                <label for="Toewijzen">Toegewezen:</label>
+                                <select class="form-control" id="Toewijzen">
+                                    <option>Niet toegewezen</option>
+                                    <option>Joop</option>
+                                    <option>Truus</option>
+                                </select>
+                            </div>
+
                         </div>
                         <hr>
                         <form>

@@ -6,9 +6,9 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">lichaamsdelen</h3>
                     </div>
-                    <div class="panel-body scrollbox">
+                    <div class="panel-body ">
 
-                        <ul class="list-group  " id="contact-list">
+                        <ul class="list-group  scrollbox" id="contact-list">
                             <li class="list-group-item">
                                 <a href="#">
                                     <div class="col-xs-12">
@@ -20,6 +20,9 @@
                                             <span><b>Voeten</b></span>
                                             <br/>
                                             <span>De voeten en enkels.</span>
+                                            <br>
+                                            <span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="" data-original-title="Verwijderen"></span>
+                                            <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="" data-original-title="Bewerken"></span>
                                         </div>
                                     </div>
                                 </a>
@@ -37,6 +40,9 @@
                                             <span><b>Voeten</b></span>
                                             <br/>
                                             <span>De voeten en enkels.</span>
+                                            <br>
+                                            <span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="" data-original-title="Verwijderen"></span>
+                                            <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="" data-original-title="Bewerken"></span>
                                         </div>
 
                                     </div>
@@ -55,6 +61,9 @@
                                             <span><b>Voeten</b></span>
                                             <br/>
                                             <span>De voeten en enkels.</span>
+                                            <br>
+                                            <span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="" data-original-title="Verwijderen"></span>
+                                            <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="" data-original-title="Bewerken"></span>
                                         </div>
 
                                     </div>
@@ -73,6 +82,9 @@
                                             <span><b>Voeten</b></span>
                                             <br/>
                                             <span>De voeten en enkels.</span>
+                                            <br>
+                                            <span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="" data-original-title="Verwijderen"></span>
+                                            <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="" data-original-title="Bewerken"></span>
                                         </div>
 
                                     </div>
@@ -82,7 +94,7 @@
                             <hr>
                         </ul>
                         <div class="addbutton">
-                            <a class="btn btn-primary btn-fab btn-raised" data-toggle="tooltip" title="Categorie_toevoegen">
+                            <a class="btn btn-primary btn-fab btn-raised" data-toggle="tooltip" title="Categorie toevoegen">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                             </a>
                         </div>
@@ -97,7 +109,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Pagina's</h3>
                     </div>
-                    <div class="panel-body scrollbox">
+                    <div class="panel-body">
 
 
                         <div class="row user-row">
@@ -169,6 +181,11 @@
 
                     </div>
 
+                </div>
+                <div class="addbutton">
+                    <a class="btn btn-primary btn-fab btn-raised" data-toggle="tooltip" title="Pagina toevoegen">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    </a>
                 </div>
             </div>
         </div>

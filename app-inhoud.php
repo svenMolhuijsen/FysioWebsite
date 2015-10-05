@@ -6,46 +6,89 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">lichaamsdelen</h3>
                     </div>
-                    <div class="panel-body">
-                        <a href="#">Toevoegen</a>
-                    </div>
-                    <div class="list-group">
-                        <div class="list-group-item">
-                            <div class="row-action-primary">
-                                <i class="mdi-file-folder"></i>
-                            </div>
-                            <div class="row-content">
-                                <div class="action-secondary"><i class="mdi-material-info"></i></div>
-                                <h4 class="list-group-item-heading">Voet</h4>
-                                <p class="list-group-item-text">De voet en enkel</p>
-                            </div>
-                        </div>
-                        <div class="list-group-separator"></div>
-                        <div class="list-group-item">
-                            <div class="row-action-primary">
-                                <i class="mdi-file-folder"></i>
-                            </div>
-                            <div class="row-content">
-                                <div class="action-secondary"><i class="mdi-material-info"></i></div>
-                                <h4 class="list-group-item-heading">Benen</h4>
-                                <p class="list-group-item-text">De benen, knieen enz</p>
-                            </div>
-                        </div>
-                        <div class="list-group-separator"></div>
-                        <div class="list-group-item">
-                            <div class="row-action-primary">
-                                <i class="mdi-file-folder"></i>
-                            </div>
-                            <div class="row-content">
-                                <div class="action-secondary"><i class="mdi-material-info"></i></div>
-                                <h4 class="list-group-item-heading">Onderlichaam</h4>
-                                <p class="list-group-item-text">Alles tussen de benen en navel</p>
-                            </div>
-                        </div>
-                        <div class="list-group-separator"></div>
-                        <a href="javascript:void(0)" class="btn btn-primary btn-fab btn-raised glyphicon glyphicon-plus"></a>
-                    </div>
+                    <div class="panel-body scrollbox">
 
+                        <ul class="list-group  " id="contact-list">
+                            <li class="list-group-item">
+                                <a href="#">
+                                    <div class="col-xs-12">
+                                        <div class="contact-identifier">
+                                            VO
+                                        </div>
+                                        <span class="open-chat glyphicon glyphicon-chevron-right"></span>
+                                        <div class="contact-info">
+                                            <span><b>Voeten</b></span>
+                                            <br/>
+                                            <span>De voeten en enkels.</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <hr>
+                            </li>
+                            <hr>
+                            <li class="list-group-item">
+                                <a href="#">
+                                    <div class="col-xs-12">
+                                        <div class="contact-identifier">
+                                            VO
+                                        </div>
+                                        <span class="open-chat glyphicon glyphicon-chevron-right"></span>
+                                        <div class="contact-info">
+                                            <span><b>Voeten</b></span>
+                                            <br/>
+                                            <span>De voeten en enkels.</span>
+                                        </div>
+
+                                    </div>
+                                </a>
+
+                            </li>
+                            <hr>
+                            <li class="list-group-item">
+                                <a href="#">
+                                    <div class="col-xs-12">
+                                        <div class="contact-identifier">
+                                            VO
+                                        </div>
+                                        <span class="open-chat glyphicon glyphicon-chevron-right"></span>
+                                        <div class="contact-info">
+                                            <span><b>Voeten</b></span>
+                                            <br/>
+                                            <span>De voeten en enkels.</span>
+                                        </div>
+
+                                    </div>
+                                </a>
+
+                            </li>
+                            <hr>
+                            <li class="list-group-item">
+                                <a href="#">
+                                    <div class="col-xs-12">
+                                        <div class="contact-identifier">
+                                            VO
+                                        </div>
+                                        <span class="open-chat glyphicon glyphicon-chevron-right"></span>
+                                        <div class="contact-info">
+                                            <span><b>Voeten</b></span>
+                                            <br/>
+                                            <span>De voeten en enkels.</span>
+                                        </div>
+
+                                    </div>
+                                </a>
+
+                            </li>
+                            <hr>
+                        </ul>
+                        <div class="addbutton">
+                            <a class="btn btn-primary btn-fab btn-raised" data-toggle="tooltip" title="Categorie_toevoegen">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            </a>
+                        </div>
+
+
+                    </div>
                 </div>
 
             </div>
@@ -54,7 +97,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Pagina's</h3>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body scrollbox">
 
 
                         <div class="row user-row">

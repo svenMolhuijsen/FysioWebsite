@@ -120,7 +120,7 @@
                         </div>
                         <hr>
                         <form>
-                            <textarea id="mytextarea"></textarea>
+                            <textarea id="editor-min"></textarea>
                             <button type="submit" class="btn btn-primary right">Verstuur</button>
                         </form>
                         <hr>

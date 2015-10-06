@@ -37,7 +37,7 @@
 
                             <li class=" dropdown"><a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">App inhoud <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Info</a></li>
+                                    <li><a href="app-inhoud.php">Wijzigen</a></li>
                                 </ul>
                             </li>
                             <li class=" dropdown"><a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Toevoegen <span class="caret"></span></a>
@@ -55,6 +55,14 @@
                             </li>
                         </ul>
                         <ul class="nav navbar-nav pull-right">
+                            <li>
+                                <div class="togglebutton">
+                                    <br>
+                                    <label>
+                                        <input type="checkbox" checked=""><span class="toggle"></span>Online
+                                    </label>
+                                </div>
+                            </li>
                             <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ingelogd  <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#" data-toggle="modal" data-target="#login-modal">Mijn Profiel</a></li>

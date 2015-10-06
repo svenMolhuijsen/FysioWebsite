@@ -40,10 +40,9 @@
                                     <li><a href="#">Info</a></li>
                                 </ul>
                             </li>
-                            <li class=" dropdown"><a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gebruikers <span class="caret"></span></a>
+                            <li class=" dropdown"><a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Toevoegen <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="club-toevoegen.php">Clubs</a></li>
-                                    <li><a href="#">Clienten</a></li>
                                 </ul>
                             </li>
                             <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Chat<span class="caret"></span></a>

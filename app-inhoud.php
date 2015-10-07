@@ -173,14 +173,7 @@
 
                         </div>
                         <hr>
-
-
-
-
-
-
                     </div>
-
                 </div>
                 <div class="addbutton">
                     <a class="btn btn-primary btn-fab btn-raised" data-toggle="tooltip" title="Pagina toevoegen">

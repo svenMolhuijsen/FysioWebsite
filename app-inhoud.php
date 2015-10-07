@@ -117,9 +117,9 @@
                                 <img class="img-circle" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50" alt="User Pic">
                             </div>
                             <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
-                                <strong>gekneuste ballen</strong>
+                                <strong>gescheurde enkelbanden</strong>
                                 <br>
-                                <span class="text-muted">zeurende pijn in de ballen</span>
+                                <span class="text-muted">stekende pijn in de enkels</span>
                             </div>
                             <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-user" data-for=".dropdown1">
                                 <i class="glyphicon glyphicon-chevron-down text-muted"></i>
@@ -147,9 +147,9 @@
                                 <img class="img-circle" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=50" alt="User Pic">
                             </div>
                             <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
-                                <strong>gekneuste ballen</strong>
+                                <strong>Gebroken been</strong>
                                 <br>
-                                <span class="text-muted">zeurende pijn in de ballen</span>
+                                <span class="text-muted">een gebroken bot</span>
                             </div>
                             <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-user" data-for=".dropdown2">
                                 <i class="glyphicon glyphicon-chevron-down text-muted"></i>

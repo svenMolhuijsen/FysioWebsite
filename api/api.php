@@ -4,241 +4,438 @@ $action = $_GET['action'];
 
 switch($action)
 {
-    case "login":
-        $params = array($_POST['username'], $_POST['password']);
-        getLogin($params);
+	// Inloggen
+    case 'login':
+        $params = array($_POST['mail'], $_POST['password']);
+        login($params);
     break;
-    case "getUserData":
-        $params = array($_POST['username']);
-        getUserData($params);
+    
+    // Wachtwoord vergeten
+    case 'forgotPassword':
+		$params = array($_POST['mail'];
+		forgotPassword($params);
     break;
+    
+    // Wachtwoord wijzigen
+    case 'changePassword':
+		$params = array($_POST['uuid'], $_POST['oldPassword'], $_POST['newPassword']);
+		changePassword($params);
+    break;
+    
+    // Sportclub toevoegen
+    case 'addSportclub':
+		$params = array($_POST['name'], $_POST['address'], $_POST['zipcode'], $_POST['location'], $_POST['phone'], $_POST['mail'], $_POST['contact_person']);
+		addSportclub($params);
+    break;
+    
+    // Bericht versturen
+    case 'sendMessage':
+		$params = array($_POST['therapist_id'], $_POST['sporter_id'], $_POST['chat_message']);
+		sendMessage($params);
+    break;
+    
+    // Standaard antwoord toevoegen
+    case 'addDefaultAnswer':
+		$params = array($_PSOT['practice_id'], $_POST['therapist_id'], $_POST['answer_title'], $_POST['answer_text']);
+		addDefaultAnswer($params);
+    break;
+    
+    // Standaard antwoord versturen
+    case 'sentDefaultAnswer':
+		$params = array($_POST['practice_id'], $_POST['therapist_id'], $_POST['answer_text']);
+		sentDefaultAnswer($params);
+    break;
+    
+    // Sporter wijzigen
+    case 'changeSporter':
+		$params = array($_POST['practice_id'], $_POST['sporter_id'], $_POST['firstName'], $_POST['lastName'], $_POST['age']);
+		changeSporter($params);
+    break;
+    
+    // Sportclub wijzigen
+    case 'changeSportclub':
+		$params = array($_POST['sportclub_id'], $_POST['name'], $_POST['address'], $_POST['zipcode'], $_POST['city'], $_POST['phone'], $_POST['mail']);
+		changeSportclub($params);
+    break;
+    
+    // Therapeut wijzigen
+    case 'changeTherapist':
+		$params = array($_POST['practice_id'], $_POST['therapist_id'], $_POST['firstname'], $_POST['lastname'], $_POST['isAdmin']);
+		changeTherapist($params);
+    break;
+    
+    // Sportclubs weergeven
+    case 'listSportclubs':
+		$params = array($_POST['practice_id']);
+		listSportclubs($params);
+    break;
+    
+    // Sporters weergeven
+    case 'listSporters':
+		$params = array($_POST['practice_id'], $_POST['sportclub_id']);
+		listSporters($params);
+    break;
+    
+    // Sporter weergeven
+    case 'displaySporter':
+		$params = array($_POST['practice_id'], $_POST['sporter_id']);
+		displaySporter($params);
+    break;
+    
+    // Sportclub verwijderen
+    case 'deleteSportclub':
+		$params = array($_POST['practice_id'], $_POST['sportclub_id']);
+		deleteSportclub($params);
+    break;
+    
+    // Chat archiveren
+    case 'archiveChat':
+		$params = array($_POST['practice_id'], $_POST['chat_id']);
+		archiveChat($params);
+    break;
+    
+    // Standaard antwoord bewerken
+    case 'editDefaultAnswer':
+		$params = array($_POST['practice_id'], $_POST['therapist_id'], $_POST['answer_title'], $_POST['answer_text']);
+		editDefaultAnswer($params);
+    break;
+    
+    // Standaard antwoord verwijderen
+    case 'deleteDefaultAnswer':
+		$params = array($_POST['practice_id'], $_POST['auto_answer_id']);
+		deleteDefaultAnswer($params);
+    break;
+    
     default:
         header("HTTP/1.0 404 Not Found");
     break;
 }
 
-function getLogin($params)
+// Inloggen
+function login($params)
 {
-    $username = $params[0];
+    $mail = $params[0];
     $password = $params[1];
-    if($username && $password)
+    
+    if($mail == "test" && $password == "test")
     {
-        if($username == "test" && $password == "test")
-        {
-            echo '{ "success": "true", "message": "success." }';
-        }
-        else
-        {
-            echo '{ "success": "false", "message": "Wachtwoord of gebruikersnaam is onjuist." }';
-        }
-    }
-    else 
-    {
-             echo '{ "success": "false", "message": "Vul aub allen velden in." }';
-    }
-}
-
-function getUser($params)
-{
-    $username = $params[0];
-
-    if($username)
-    {
-        echo '{ "success": "true", "username": "Test", "firstname": "Lars", "lastname": "Janssen",    "address": "Boschlaan 10",    "zip": "5993HK" }';
+        $result = array('status' => 'success');
     }
     else
     {
-        echo '
-			{ 
-				"success": false, 
-				"message": "error" 
-			}
-        ';
+        $result = array('status' => 'unsuccessful');
     }
+    
+    echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
-function getTips($params)
+// Wachtwoord vergeten
+function forgotPassword($params)
 {
-    $therapist = $params[0];
-    $searchquery = $params[1];
-
-    if($therapist)
-    {
-        if($searchquery)
-        {
-            // get tips with keyword
-
-            echo '
-				{
-					"tips": [
-						{
-							"uuid": "1",
-							"name": "Bloeding achterhoofd",
-							"description": "Ja hoofd is kapot"
-						}
-					]
-				}
-            ';
-        }
-        else
-        {
-            echo '
-				{
-					"bodyparts": [
-						{
-							"uuid": "1",
-							"name": "Hoofd",
-							"description", "Hoofdletsel",
-							"tips": [
-								{
-									"uuid": "1",
-									"name": "Bloeding achterhoofd",
-									"description": "Ja hoofd is kapot"
-								},
-								{
-									"uuid": "2",
-									"name": "Bloeding neus",
-									"description": "Ja neus is kapot"
-								}
-							]
-						}
-					]
-				}
-            ';
-        }
-    }
+	$mail = $params[0];
+	
+	if($mail == 'test')
+	{
+		$result = array('status' => 'sent');
+	}
+	else
+	{
+		$result = array('status' => 'not send');
+	}
+	
+	echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
-function setPasswordRecoveryEmail($params)
+// Wachtwoord wijzigen
+function changePassword($params)
 {
-    $email = $params[0];
-
-    if($email)
-    {
-        // send
-
-         echo '{ "success": "true", "message": "Er is een e-mail verstuurd." }';
-    }
-    else
-    {
-         echo '{ "success": "false", "message": "Er is geen account gevonden met dit e-mail adres, of er is geen e-mail ingevuld." }';
-    }
+	$uuid = $params[0];
+	$oldPassword = $params[1];
+	$newPassword = $params[2];
+	
+	if($uuid == '1234')
+	{
+		$result = array('status' => 'success');
+	}
+	else
+	{
+		$result = array('status' => 'unsuccessful');
+	}
+	
+	echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
-function setPassword($params)
+// Sportclub toevoegen
+function addSportclub($params)
 {
-    $email = $params[0];
-    $password = $params[1];
-    $repeat = $params[2];
-
-    if($email)
-    {
-        if($password && $password == $repeat)
-        {
-            // set password
-
-            echo '{ "success": "true", "message": "Het account is gewijzigd." }';
-        }
-        else
-        {
-            echo '{ "success": "false", "message": "Wachtwoord niet ingevuld, of het wachtwoord klopt niet met het herhalingwachtwoord." }';
-        }
-    }
-    else
-    {
-        echo '{ "success": "false", "message": "E-mail adres is niet ingevuld." }';
-    }
+	$name = $params[0];
+	$address = $params[1];
+	$zipcode = $params[2];
+	$location = $params[3];
+	$phone = $params[4];
+	$mail = $params[5];
+	$contact_person = $params[6];
+	
+	if($name == 'error')
+	{
+		$result = array('status' => 'saved');
+	}
+	else
+	{
+		$result = array('status' => 'not saved');
+	}
+	
+	echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
-function setMessage($params)
+// Bericht versturen
+function sendMessage($params)
 {
-    $uuid = $params[0];
-    $therapist = $params[1];
-    $message = $params[2];
-    $image = $params[3];
-
-    if($uuid && $therapist){
-        if($message)
-        {
-            if(!$image)
-            {
-                $image = null;
-            }
-            // send message
-
-            echo '{ "success": "true", "user": "'.$uuid.'", "therapist": "'.$therapist.'", message": "'.$message.'", "image": "'.$image.'" }';
-        }
-        else
-        {
-            echo '{ "success": "false", "message": "Geen bericht ingevuld." }';
-        }
-    }
-    else
-    {
-        echo '{ "success": "false", "message": "Fout." }';
-    }
+	$therapist_id = $params[0];
+	$sporter_id = $params[1];
+	$chat_message = $params[2];
+	
+	if($therapist_id == '1')
+	{
+		$result = array('status' => 'saved');
+	}
+	else
+	{
+		$result = array('status' => 'not saved');
+	}
+	
+	echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
-function getMessages($params)
+// Standaard antwoord toevoegen
+function addDefaultAnswer($params)
 {
-    $uuid = $params[0];
-    $therapist = $params[1];
-
-    if($uuid && $therapist)
-    {
-        echo '
-        "messages": [
-                {
-                    "uuid": "1",
-                    "user": "Bjorn",
-                    "userpicture": "http://www.morganstanley.com/assets/images/people/tiles/michael-asmar.jpg",
-                    "message": "Hallo",
-                    "image": ""
-                },
-                {
-                    "uuid": "2",
-                    "user": "Lars",
-                    "userpicture": "http://www.morganstanley.com/assets/images/people/tiles/michael-asmar.jpg",
-                    "message": "Hey.",
-                    "image": ""
-                }
-            ]
-        ';
-    }
-    else
-    {
-        echo '{ "success": "false", "message": "Fout." }';
-    }
+		$therapist_id = $params[0];
+		$sporter_id = $params[1];
+		$chat_message = $params[2];
+		
+		if($therapist_id == '1')
+		{
+			$result = array('status' => 'sent');
+		}
+		else
+		{
+			$result = array('status' => 'not sent');
+		}
+		
+		echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
-function getInjuries($params)
+// Standaard antwoord versturen
+function sentDefaultAnswer($params)
 {
-    $uuid = $params[0];
-
-    if($uuid)
-    {
-        echo '
-			{
-				"injuries": [
-					{
-						"uuid": "1",
-						"title": "Bleeding head",
-						"description": "Head was heavily bleeding.",
-						"sulution": "Went to hospital and stitched my wound."
-					},
-					{
-						"uuid": "2",
-						"title": "Bleeding head",
-						"description": "Head was heavily bleeding.",
-						"sulution": "Went to hospital and stitched my wound."
-					}
-				]
-			}
-        ';
-    }
-    else
-    {
-        echo '{ "success": "false", "message": "Fout." }';
-    }
+	$practice_id = $params[0];
+	$therapist_id = $params[1];
+	$answer_title = $params[2];
+	$answer_text = $params[3];
+	
+	if($practice_id == '1')
+	{
+		$result = array('status' => 'sent');
+	}
+	else
+	{
+		$result = array('status' => 'not sent');
+	}
+	
+	echo json_encode($result, JSON_PRETTY_PRINT);
 }
+
+// Sporter wijzigen
+function changeSporter($params)
+{
+	$practice_id = $params[0];
+	$sporter_id = $params[1];
+	$firstName = $params[2];
+	$lastName = $params[3];
+	$age = $params[4];
+	
+	if($practice_id == '1')
+	{
+		$result = array('status' => 'saved');
+	}
+	else
+	{
+		$result = array('status' => 'not saved');
+	}
+	
+	echo json_encode($result, JSON_PRETTY_PRINT);
+}
+
+// Sportclub wijzigen
+function changeSportclub($params)
+{
+	$sportclub_id = $params[0];
+	$name = $params[1];
+	$address = $params[2];
+	$zipcode = $params[3];
+	$city = $params[4];
+	$phone = $params[5];
+	$mail = $params[6];
+	$contact_person = $params[7];
+	
+	if($sportclub_id == '1')
+	{
+		$result = array('status' => 'saved');
+	}
+	else
+	{
+		$result = array('status' => 'not saved');
+	}
+	
+	echo json_encode($result, JSON_PRETTY_PRINT);
+}
+
+// Therapeut wijzigen
+function changeTherapist($params)
+{
+	$practice_id = $params[0];
+	$therapist_id = $params[1];
+	$firstname = $params[2];
+	$isAdmin = $params[3];
+	
+	if($practice_id == '1')
+	{
+		$result = array('result' => 'saved');
+	}
+	else
+	{
+		$result = array('result' => 'not saved');
+	}
+	
+	echo json_encode($result, JSON_PRETTY_PRINT);
+}
+
+// Sportclubs weergeven
+function listSportclubs($params)
+{
+	$practice_id = $params[0];
+	
+	if($practice_id == '1')
+	{
+		$result = array('sportclub' => array('name' => 'Ajax', 'contact_person' => 'Hans'), 'sportclub' => array('name' => 'PSV', 'contact_person' => 'HEnk'));
+	}
+	else
+	{
+		$result = array('status', 'not found');
+	}
+	
+	echo json_encode($result, JSON_PRETTY_PRINT);
+}
+
+// Sporters weergeven
+function listSporters($params)
+{
+	$practice_id = $params[0];
+	$sporter_id = $params[1];
+	
+	if($practice_id == '1')
+	{
+		$result = array('sporter' => array('firstname' => 'Jan', 'lastname' => 'Janssen', 'age' => '13'), 'sporter' => array('firstname' => 'Hans', 'lastname' => 'Hanssen', 'age' => '36'));
+	}
+	else
+	{
+		$result = array('status' => 'not found');
+	}
+	
+	echo json_encode($result, JSON_PRETTY_PRINT);
+}
+
+// Sporter weergeven
+function displaySporter($params)
+{
+	$practice_id = $params[0];
+	$sporter_id = $params[1];
+	
+	if($practice_id == '1')
+	{
+		$result = array('firstname' => 'Jan', 'lastname' => 'Janssen', 'age' => '345');
+	}
+	else
+	{
+		$result = array('status' => 'not found');
+	}
+	
+	echo json_encode($result, JSON_PRETTY_PRINT);
+}
+
+// Sportclub verwijderen
+function deleteSportclub($params)
+{
+	$practice_id = $params[0];
+	$sportclub_id = $params[1];
+	
+	if($practice_id == '1')
+	{
+		$result = array('status' => 'deleted');
+	}
+	else
+	{
+		$result = array('status' => 'not deleted');
+	}
+	
+	echo json_encode($result, JSON_PRETTY_PRINT);
+}
+
+// Chat archiveren
+function archiveChat($params)
+{
+	$practice_id = $params[0];
+	$chat_id = $params[1];
+	
+	if($practice_id == '1')
+	{
+		$result = array('status' => 'archived');
+	}
+	else
+	{
+		$result = array('status' => 'not archived');
+	}
+	
+	echo json_encode($result, JSON_PRETTY_PRINT);
+}
+
+// Standaard antwoord wijzigen
+function editDefaultAnswer($params)
+{
+	$practice_id = $params[0];
+	$therapist_id = $params[1];
+	$answer_title = $params[2];
+	$answer_text = $params[3];
+	
+	if($practice_id == '1')
+	{
+		$result = array('status' => 'saved');
+	}
+	else
+	{
+		$result = array('status' => 'not saved');
+	}
+	
+	echo json_encode($result, JSON_PRETTY_PRINT);
+}
+
+// Standaard antwoord verwijderen
+function deleteDefaultAnswer($params)
+{
+	$practice_id = $params[0];
+	$auto_answer_id = $params[1];
+	
+	if($practice_id == '1')
+	{
+		$result = array('status' => 'deleted');
+	}
+	else
+	{
+		$result = array('status' => 'not deleted');
+	}
+	
+	echo json_encode($result, JSON_PRETTY_PRINT);
+}
+
 ?>

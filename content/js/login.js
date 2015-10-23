@@ -22,12 +22,12 @@ $("form").submit(function () {
             .done(function (data) {
                 data = $.parseJSON(data);
                 if (data["status"] == "success") {
+                    console.log(data);
                     msgChange($('#div-login-msg'), $('#icon-login-msg'), $('#text-login-msg'), "success", "glyphicon-ok", "Login OK");
-
+                    document.cookie = "uuid=" + data["uuid"];
                 } else {
                     msgChange($('#div-login-msg'), $('#icon-login-msg'), $('#text-login-msg'), "error", "glyphicon-remove", "Er ging iets mis bij inloggen");
                 }
-
             })
             .fail(function () {
                 alert("er ging iets niet goed..." + data);

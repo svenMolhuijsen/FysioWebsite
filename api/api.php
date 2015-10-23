@@ -119,7 +119,7 @@ function login($params)
     
     if($mail == "test" && $password == "test")
     {
-        $result = array('status' => 'success');
+        $result = array('status' => 'success', 'uuid' => '28e23bf2-5885-4029-9a9c-6471237db2e8');
     }
     else
     {

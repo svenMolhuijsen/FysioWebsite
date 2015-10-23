@@ -12,7 +12,7 @@ switch($action)
     
     // Wachtwoord vergeten
     case 'forgotPassword':
-		$params = array($_POST['mail'];
+		$params = array($_POST['mail']);
 		forgotPassword($params);
     break;
     

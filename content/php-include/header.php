@@ -65,8 +65,8 @@
                             </li>
                             <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ingelogd  <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Mijn Profiel</a></li>
-                                    <li class=""><a href="#">Uitloggen</a></li>
+                                    <li><a href="#" data-toggle="modal">Mijn Profiel</a></li>
+                                    <li class=""><a href="login.php">Uitloggen</a></li>
 
                                 </ul>
                             </li>

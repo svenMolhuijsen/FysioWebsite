@@ -1,5 +1,5 @@
 <?php require_once("content/php-include/header.php"); ?>
-    <?php include_once "content/php-include/login-popup.php" ?>
+
         <div class="container">
             <div class="col-sm-5">
                 <div class="panel panel-primary">

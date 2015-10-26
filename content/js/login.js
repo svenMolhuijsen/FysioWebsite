@@ -5,16 +5,13 @@ var $divForms = $('#div-forms');
 var $modalAnimateTime = 300;
 var $msgAnimateTime = 150;
 var $msgShowTime = 2000;
-var data = [];
 
 // SWITCH OM TE BEPALEN WELK FORMULIER ER WORD VERSTUURD
 $("form").submit(function () {
     switch (this.id) {
     case "login-form":
-
         var login_username = $('#login_username').val();
         var login_password = $('#login_password').val();
-        //TODO: AJAX VOOR VERIFICATIE GEBRUIKER
         $.post("api/api.php?action=login", {
                 mail: login_username,
                 password: login_password
@@ -37,20 +34,34 @@ $("form").submit(function () {
         break;
     case "lost-form":
         //TODO: AJAX VOOR HERSTEL WACHTWOORD
-        var $ls_email = $('#lost_email').val();
-        if ($ls_email == "ERROR") {
-            msgChange($('#div-lost-msg'), $('#icon-lost-msg'), $('#text-lost-msg'), "error", "glyphicon-remove", "Send error");
-        } else {
-            msgChange($('#div-lost-msg'), $('#icon-lost-msg'), $('#text-lost-msg'), "success", "glyphicon-ok", "Send OK");
-        }
+        var lost_email = $('#lost_email').val();
+        $.post("api/api.php?action=forgotPassword", {
+                mail: lost_email
+            })
+            .done(function (data) {
+                console.log(data);
+                data = $.parseJSON(data);
+
+                if (data["status"] == "sent") {
+                    msgChange($('#div-lost-msg'), $('#icon-lost-msg'), $('#text-lost-msg'), "success", "glyphicon-ok", "Er is een mail verzonden naar het opgegeven e-mailadres met instructies");
+                } else {
+                    msgChange($('#div-lost-msg'), $('#icon-lost-msg'), $('#text-lost-msg'), "error", "glyphicon-remove", "Dit e-mail adres is niet gevonden in de database");
+                }
+            })
+            .fail(function () {
+                msgChange($('#div-lost-msg'), $('#icon-lost-msg'), $('#text-lost-msg'), "error", "glyphicon-remove", "Er zijn problemen met de verbinding");
+            });
         return false;
         break;
     default:
         return false;
+        break;
     }
     return false;
 });
-//ANIMATIES
+
+
+//ANIMATIES LOGINFORM
 // SWITCHT TUSSEN FORMULIEREN
 $('#login_register_btn').click(function () {
     modalAnimate($formLogin, $formRegister)
@@ -64,7 +75,6 @@ $('#login_lost_btn').click(function () {
 $('#lost_login_btn').click(function () {
     modalAnimate($formLost, $formLogin);
 });
-
 
 function modalAnimate($oldForm, $newForm) {
     var $oldH = $oldForm.height();

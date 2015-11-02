@@ -49,7 +49,7 @@ $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
 
 
-
+    //THERAPIST WIJZIGEN FORMULIER
     var table = $(".table-therapist-information tbody");
     table.find(' tr').each(function (i, el) {
         var text = $(this).find('td span').text();

@@ -1,6 +1,6 @@
 <?php require_once("content/php-include/header.php"); ?>
 
-        <div class="container">
+        <div class="container">			
             <div class="col-sm-5">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
@@ -94,12 +94,10 @@
                             <hr>
                         </ul>
                         <div class="addbutton">
-                            <a class="btn btn-primary btn-fab btn-raised" data-toggle="tooltip" title="Categorie toevoegen">
+                            <a id="btn_add_category" class="btn btn-primary btn-fab btn-raised" data-toggle="tooltip" title="Categorie toevoegen">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                             </a>
                         </div>
-
-
                     </div>
                 </div>
 
@@ -181,8 +179,41 @@
                     </a>
                 </div>
             </div>
+            
+            
+            <div id="_add_category" class="col-sm-12 well page active" style="position:absolute; display:block;">
+				      <!-- Categorie toevoegen -->
+		      		<form id="frm_add_category">
+			      		<h1 class="header">Categorie Toevoegen</h1>
+		       			
+		      			<!-- Categorie naam -->
+			      		<div class="form-group">
+		      				<label class="col-lg-2 control-label" for="tb_cat_name">Categorie naam:</label>
+                 <div class="col-lg-10">
+				      		  <input id="tb_cat_name" class="form-control" type="text" placeholder="Categorie naam..." required="required"/>
+	      				  </div>
+               </div>
+		
+		      			<!-- Categorie omschrijving -->
+		      			<div class="form-group">
+		      				<label class="col-lg-2 control-label" for="tb_cat_description">Categorie omschrijving:</label>
+			      			<div class="col-lg-10">
+                    <input id="tb_cat_description" class="form-control" type="text" placeholder="Categorie omschrijving..." required="required"/>
+			      		  </div>
+                </div>
+		
+		      			<!-- Categorie afbeelding -->
+		      			<div class="form-group">
+			      			<label class="col-lg-2 control-label" for="tb_cat_image">Categorie afbeelding:</label>
+			       			<div class="col-lg-10">
+                    <input id="tb_cat_image" class="form-control" type="text" placeholder="Categorie afbeelding URL..." required="required"/>
+                  </div>
+				      	</div>
+		      		</form>
+            </div>
+            
         </div>
-        <script>
-        </script>
 
-        <?php require_once("content/php-include/footer.php"); ?>
+<?php require_once("content/php-include/footer.php"); ?>
+
+<script src="content/js/app-inhoud.js"></script>

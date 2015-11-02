@@ -1,7 +1,7 @@
 $(document).ready(function () {
+    //HTML EDITOR AANZETTEN
     $(function () {
         $('[data-toggle="tooltip"]').tooltip();
-
         tinymce.init({
             language_url: 'content/js/languages/nl.js',
             selector: ".full-editor",
@@ -23,10 +23,10 @@ $(document).ready(function () {
         });
     })
 
+    //DROPDOWN BIJ CHAT ENZO
     var panels = $('.user-infos');
     var panelsButton = $('.dropdown-user');
     panels.hide();
-
     //Click dropdown
     panelsButton.click(function () {
         //get data-for attribute
@@ -45,8 +45,20 @@ $(document).ready(function () {
         })
     });
 
-
+    //TOOLTIP ACTIVEREN
     $('[data-toggle="tooltip"]').tooltip();
 
+
+
+    var table = $(".table-therapist-information tbody");
+    table.find(' tr').each(function (i, el) {
+        var text = $(this).find('td span').text();
+        $(this).find('td input').val(text);
+    });
+
+    $(".toggleForm").click(function () {
+        $(".table-therapist-information span, .table-therapist-information input, .table-therapist-information select, .editTherapistBtn").toggle(400);
+
+    });
 
 });

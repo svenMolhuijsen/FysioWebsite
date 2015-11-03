@@ -94,7 +94,7 @@
                             <hr>
                         </ul>
                         <div class="addbutton">
-                            <a id="btn_add_category" class="btn btn-primary btn-fab btn-raised" data-toggle="tooltip" title="Categorie toevoegen">
+                            <a id="btn_add_category" data-target="#_add_category" data-toggle="modal" class="btn btn-primary btn-fab btn-raised" title="Categorie toevoegen">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                             </a>
                         </div>
@@ -181,35 +181,33 @@
             </div>
             
             
-            <div id="_add_category" class="col-sm-12 well page active" style="position:absolute; display:block;">
-				      <!-- Categorie toevoegen -->
-		      		<form id="frm_add_category">
-			      		<h1 class="header">Categorie Toevoegen</h1>
-		       			
-		      			<!-- Categorie naam -->
-			      		<div class="form-group">
-		      				<label class="col-lg-2 control-label" for="tb_cat_name">Categorie naam:</label>
-                 <div class="col-lg-10">
-				      		  <input id="tb_cat_name" class="form-control" type="text" placeholder="Categorie naam..." required="required"/>
-	      				  </div>
-               </div>
-		
-		      			<!-- Categorie omschrijving -->
-		      			<div class="form-group">
-		      				<label class="col-lg-2 control-label" for="tb_cat_description">Categorie omschrijving:</label>
-			      			<div class="col-lg-10">
-                    <input id="tb_cat_description" class="form-control" type="text" placeholder="Categorie omschrijving..." required="required"/>
-			      		  </div>
+            <div id="_add_category" class="modal fade" role="dialog">
+              <div class="modal-dialog" style="background-color:#fff;">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Categorie Toevoegen</h4>
                 </div>
-		
-		      			<!-- Categorie afbeelding -->
-		      			<div class="form-group">
-			      			<label class="col-lg-2 control-label" for="tb_cat_image">Categorie afbeelding:</label>
-			       			<div class="col-lg-10">
-                    <input id="tb_cat_image" class="form-control" type="text" placeholder="Categorie afbeelding URL..." required="required"/>
+
+                <div class="modal-body">
+                
+                 <!-- Categorie naam -->
+                  <div class="form-group">
+                    <label class="control-label" for="tb_cat_name">Categorie naam:</label>
+                    <input id="tb_cat_name" class="form-control col-lg-10" type="text" required="required" placeholder="Categorie naam..."/>
                   </div>
-				      	</div>
-		      		</form>
+
+                  <!-- Categorie omschrijving -->
+                  <div class="form-group">
+                    <label class="control-label" for="tb_cat_description">Categorie omschrijving:</label>
+                    <textarea id="tb_cat_description" class="form-control col-lg-10" required="required" placeholder="Categorie omschrijving..."></textarea>
+                  </div>
+
+                  <!-- Opslaan/annuleren -->
+                  <button id="btn_cat_save" class="btn btn-primary">Opslaan</button>
+                  <button id="btn_cat_cancel" class="btn btn-default" data-dismiss="modal">Annuleren</button>
+                 </div>
+
+              </div>
             </div>
             
         </div>

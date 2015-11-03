@@ -89,3 +89,9 @@ a:hover {
     color: white;
     padding: 15px 0;
 }
+
+.table-therapist-information input,
+.table-therapist-information select,
+.editTherapistBtn {
+    display: none;
+}

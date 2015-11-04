@@ -20,8 +20,6 @@
                                         <br/>
                                         <span>specialismen: benen, enkels</span>
                                         <br>
-                                        <span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="" data-original-title="Verwijderen"></span>
-                                        <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="" data-original-title="Bewerken"></span>
                                     </div>
                                 </div>
                             </a>
@@ -41,8 +39,6 @@
                                         <br/>
                                         <span>specialismen: benen, enkels</span>
                                         <br>
-                                        <span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="" data-original-title="Verwijderen"></span>
-                                        <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="" data-original-title="Bewerken"></span>
                                     </div>
                                 </div>
                             </a>
@@ -154,7 +150,11 @@
         </div>
 
     </div>
-    <script>
-    </script>
 
     <?php require_once("content/php-include/footer.php"); ?>
+        <script>
+            var practiceUUID = "thatOneID";
+            var userUUID = "anotherID";
+
+
+        </script>

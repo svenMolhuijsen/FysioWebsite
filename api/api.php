@@ -336,7 +336,7 @@ function listTherapists()
 
     if($practice == "theClubId")
     {
-        $result = array();
+        $result = array("status"=>"success", "users" =>array("user"=>array("userID"=>"123122", "voornaam" => "Henk" "achternaam" =>"Baltissen", "specialismen"=>"knie, enkel", "datum-in-dienst"=>"1997-04-01", "geboortedatum"=>"1997-04-01", "geslacht"=>"m" "email"=>"Bart.Kessels@gmail.com", "telefoonnummer"=>"31634194230"));
     }
     else
     {

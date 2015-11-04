@@ -70,7 +70,7 @@
 					<div class="form-group">
 						<div class="col-lg-10 col-lg-offset-2">
 							<button id="btn_add_sportclub" type="submit" class="btn btn-primary">Sportclub toevoegen</button>
-							<button id="btn_cancel" class="btn btn-default">Annuleren</button>
+							<button id="btn_cancel_sportclub" type="submit" class="btn btn-default">Annuleren</button>
 						</div>
 					</div>
 				</div>

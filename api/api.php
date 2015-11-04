@@ -57,11 +57,7 @@ switch($action)
     $params = array($_POST['sportclub_id'], $_POST['name'], $_POST['address'], $_POST['zipcode'], $_POST['city'], $_POST['phone'], $_POST['mail']);
     changeSportclub($params);
     break;
-    //list therapists
-        case 'listTherapists':
-		$params = array($_POST['practice_id']);
-		listTherapists($params);
-    break;
+    
     // Therapeut wijzigen
     case 'changeTherapist':
     $params = array($_POST['practice_id'], $_POST['therapist_id'], $_POST['firstname'], $_POST['lastname'], $_POST['isAdmin']);
@@ -109,10 +105,6 @@ switch($action)
     $params = array($_POST['practice_id'], $_POST['auto_answer_id']);
     deleteDefaultAnswer($params);
     break;
-    
-    default:
-        header("HTTP/1.0 404 Not Found");
-    break;
 
     // Flowchart categorie toevoegen
     case 'addFlowchartCategory':
@@ -148,6 +140,10 @@ switch($action)
     case 'deleteFlowchartItem':
       $params = array($_POST['practice_id'], $_POST['category_id'], $_POST['item_id']);
       deleteFlowchartItem($params);
+    break;
+
+    default:
+      header('HTTP/1.0 404 NOT FOUND');
     break;
 }
 
@@ -330,21 +326,7 @@ function changeSportclub($params)
   
   echo json_encode($result, JSON_PRETTY_PRINT);
 }
-function listTherapists()
-{
-    $practice = $params[1];
 
-    if($practice == "theClubId")
-    {
-        $result = array();
-    }
-    else
-    {
-        $result = array('status' => 'unsuccessful');
-    }
-
-    echo json_encode($result, JSON_PRETTY_PRINT);
-}
 // Therapeut wijzigen
 function changeTherapist($params)
 {

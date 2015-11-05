@@ -76,7 +76,7 @@
                                             <td>
                                                 <span>Bart</span>
 
-                                                <input type="text" name="achternaam" value="" class="form-control" required>
+                                                <input type="text" name="txt_Therapist_FirstName" value="" class="form-control" required>
                                             </td>
 
                                         </tr>
@@ -85,7 +85,7 @@
                                             <td>
                                                 <span>Kessels</span>
 
-                                                <input type="text" name="achternaam" value="" class="form-control" required>
+                                                <input type="text" name="txt_Therapist_Lastname" value="" class="form-control" required>
                                             </td>
 
                                         </tr>
@@ -93,42 +93,38 @@
                                             <td>Specialismen:</td>
                                             <td>
                                                 <span>knie, enkel</span>
-                                                <input type="text" name="specialismen" value="" class="form-control" required>
+                                                <input type="text" name="txt_Therapist_Talents" value="" class="form-control" required>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Datum in dienst</td>
                                             <td>
                                                 <span>1997-04-01</span>
-                                                <input type="date" name="datum in dienst" value="" class="form-control" required>
+                                                <input type="date" name="dat_Therapist_InService" value="" class="form-control" required>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Geboortedatum</td>
                                             <td><span>1997-04-01</span>
-                                                <input type="date" name="geboortedatum" value="" class="form-control" required>
+                                                <input type="date" name="dat_Therapist_DateOfBirth" value="" class="form-control" required>
                                             </td>
                                         </tr>
                                         <tr>
                                             <tr>
                                                 <td>Geslacht</td>
                                                 <td><span>Man</span>
-                                                    <select class="form-control" value="" id="select">
-                                                        <option>Vrouw</option>
-                                                        <option>Man</option>
-                                                        <option>anders...</option>
-                                                    </select>
+                                                    <input type="date" name="txt_Therapist_Gender" value="" class="form-control" required>
                                             </tr>
                                             <tr>
                                                 <td>Email</td>
                                                 <td><span>Bart@fysiofitcare.nl</span>
-                                                    <input type="mail" name="email" value="" class="form-control" required>
+                                                    <input type="mail" name="mail_Therapist_Email" value="" class="form-control" required>
                                                 </td>
                                             </tr>
                                             <td>Telefoon</td>
                                             <td>
                                                 <span>+31 6-341-94-230</span>
-                                                <input type="text" name="telefoon" value="" class="form-control" required>
+                                                <input type="text" name="txt__Therapist_telefoon" value="" class="form-control" required>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -156,21 +152,4 @@
             var practiceUUID = "thatOneID";
             var userUUID = "anotherID";
 
-            $.post("api/api.php?action=listtherapists", {
-                    mail: login_username,
-                    password: login_password
-                })
-                .done(function (data) {
-                    data = $.parseJSON(data);
-                    if (data["status"] == "success") {
-                        console.log(data);
-                        msgChange($('#div-login-msg'), $('#icon-login-msg'), $('#text-login-msg'), "success", "glyphicon-ok", "Login OK");
-                        document.cookie = "uuid=" + data["uuid"] + ";practice_uuid=" + data["practice_uuid"];
-                    } else {
-                        msgChange($('#div-login-msg'), $('#icon-login-msg'), $('#text-login-msg'), "error", "glyphicon-remove", "Er ging iets mis bij inloggen");
-                    }
-                })
-                .fail(function () {
-                    alert("er ging iets niet goed..." + data);
-                });
         </script>

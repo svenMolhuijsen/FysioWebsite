@@ -9,22 +9,22 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$mail = $params->mail;
-			$password = $params->password;
+			$s_mail = $params->mail;
+			$s_password = $params->password;
 			
-			if($mail == 'test')
+			if($s_mail == 'test')
 			{
 				// Gelukt
-				$result = array('status' => 'success', 'therapist_uuid' => '28e23bf2-5885-4029-9a9c-6471237db2e8', 'practice_uuid' => '28e23bf2-5885-4029-9a9c-6471237db2e8');
+				$a_result = array('status' => 'success', 'therapist_uuid' => '28e23bf2-5885-4029-9a9c-6471237db2e8', 'practice_uuid' => '28e23bf2-5885-4029-9a9c-6471237db2e8');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'unsuccessful');
+				$a_result = array('status' => 'unsuccessful');
 			}			
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// Wachtwoord vergeten
@@ -34,21 +34,21 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$mail = $params->mail;
+			$s_mail = $params->mail;
 			
-			if($mail == 'test')
+			if($s_mail == 'test')
 			{
 				// Gelukt
-				$result = array('status' => 'sent');
+				$a_result = array('status' => 'sent');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'not sent');
+				$a_result = array('status' => 'not sent');
 			}
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// Wachtwoord wijzigen
@@ -58,24 +58,24 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$oldPassword = $params->oldPassword;
-			$newPassword = $params->newPassword;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_oldPassword = $params->oldPassword;
+			$s_newPassword = $params->newPassword;
 			
-			if($oldPassword == 'test')
+			if($s_oldPassword == 'test')
 			{
 				// Gelukt
-				$result = array('status' => 'success');
+				$a_result = array('status' => 'success');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'unsuccessful');
+				$a_result = array('status' => 'unsuccessful');
 			}
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// SPORTCLUB ---------------------------------------------------		
@@ -86,29 +86,29 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$name = $params->name;
-			$address = $params->address;
-			$zipcode = $params->zipcode;
-			$location = $params->location;
-			$phone = $params->phone;
-			$mail = $params->mail;
-			$contact_person = $params->contact_person;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_name = $params->name;
+			$s_address = $params->address;
+			$s_zipcode = $params->zipcode;
+			$s_location = $params->location;
+			$i_phone = $params->phone;
+			$s_mail = $params->mail;
+			$s_contact_person = $params->contact_person;
 			
-			if($name == 'test')
+			if($s_name == 'test')
 			{
 				// Gelukt
-				$result = array('status' => 'saved');
+				$a_result = array('status' => 'saved');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'not saved');
+				$a_result = array('status' => 'not saved');
 			}
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// Sportclub bewerken
@@ -118,30 +118,30 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$sportclub_uuid = $params->sportclub_uuid;
-			$name = $params->name;
-			$address = $params->address;
-			$zipcode = $params->zipcode;
-			$city = $params->city;
-			$phone = $params->phone;
-			$mail = $params->mail;
-			$contact_person = $params->contact_person;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_sportclub_uuid = $params->sportclub_uuid;
+			$s_name = $params->name;
+			$s_address = $params->address;
+			$s_zipcode = $params->zipcode;
+			$s_city = $params->city;
+			$i_phone = $params->phone;
+			$s_mail = $params->mail;
+			$s_contact_person = $params->contact_person;
 			
-			if($name == 'test')
+			if($s_name == 'test')
 			{
 				// Gelukt
-				$result = array('status' => 'saved');
+				$a_result = array('status' => 'saved');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'not saved');
+				$a_result = array('status' => 'not saved');
 			}
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// Overzicht sportclubs
@@ -151,13 +151,13 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
 			
-			$result = array('sportclub' => array('sportclub_uuid' => '123456', 'name' => 'PSV', 'address' => 'Melkweg 123', 'zipcode' => '124KD', 'city' => 'Venray', 'phone' => '0147585459', 'mail' => 'info@psv.nl', 'contact_person' => 'HENK'), 'sportclub' => array('sportclub_uuid' => '12sd56', 'name' => 'Ajax', 'address' => 'Ajaxweg 123', 'zipcode' => '124AJ', 'city' => 'Oostrum', 'phone' => '0197585459', 'mail' => 'mail-@j.ax', 'contact_person' => 'Hans'));
+			$a_result = array('sportclub' => array('sportclub_uuid' => '123456', 'name' => 'PSV', 'address' => 'Melkweg 123', 'zipcode' => '124KD', 'city' => 'Venray', 'phone' => '0147585459', 'mail' => 'info@psv.nl', 'contact_person' => 'HENK'), 'sportclub' => array('sportclub_uuid' => '12sd56', 'name' => 'Ajax', 'address' => 'Ajaxweg 123', 'zipcode' => '124AJ', 'city' => 'Oostrum', 'phone' => '0197585459', 'mail' => 'mail-@j.ax', 'contact_person' => 'Hans'));
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// Sportclub verwijderen
@@ -167,23 +167,23 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$sportclub_uuid = $params->sportclub_uuid;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_sportclub_uuid = $params->sportclub_uuid;
 			
-			if($therapist_uuid == '28e23bf2-5885-4029-9a9c-6471237db2e8')
+			if($s_therapist_uuid == '28e23bf2-5885-4029-9a9c-6471237db2e8')
 			{
 				// Gelukt
-				$result = array('status' => 'deleted');
+				$a_result = array('status' => 'deleted');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'not deleted');
+				$a_result = array('status' => 'not deleted');
 			}
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// CHAT BERICHTEN ----------------------------------------------
@@ -194,24 +194,24 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$sporter_uuid = $params->sporter_uuid;
-			$chat_message = $params->chat_message;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_sporter_uuid = $params->sporter_uuid;
+			$s_chat_message = $params->chat_message;
 			
-			if($chat_message == 'test')
+			if($s_chat_message == 'test')
 			{
 				// Gelukt
-				$result = array('status' => 'sent');
+				$a_result = array('status' => 'sent');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'not sent');
+				$a_result = array('status' => 'not sent');
 			}
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// Chat archiveren
@@ -221,23 +221,23 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$chat_uuid = $params->chat_uuid;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_chat_uuid = $params->chat_uuid;
 			
-			if($chat_uuid == '123456')
+			if($s_chat_uuid == '123456')
 			{
 				// Gelukt
-				$result = array('status' => 'archived');
+				$a_result = array('status' => 'archived');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'not archived');
+				$a_result = array('status' => 'not archived');
 			}
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// STANDAARD ANTWOORDEN ----------------------------------------
@@ -248,24 +248,24 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$answer_title = $params->answer_title;
-			$answer_text = $params->answer_text;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_nswer_title = $params->answer_title;
+			$s_answer_text = $params->answer_text;
 			
-			if($answer_title == 'test')
+			if($s_answer_title == 'test')
 			{
 				// Gelukt
-				$result = array('status' => 'saved');
+				$a_result = array('status' => 'saved');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'not saved');
+				$a_result = array('status' => 'not saved');
 			}
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// Standaard antwoorden weergeven
@@ -275,13 +275,13 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
 			
-			$result = array('defaultAnswer' => array('defaultAnswer_uuid' => '123456', 'answer_title' => 'Standaard reactie rugprobleem', 'answer_text' => 'Niet onderuit gezakt gaan zitten.'), 'defaultAnswer' => array('defaultAnswer_uuid' => '123456', 'answer_title' => 'Standaard reactie voetprobleem', 'answer_text' => 'Regelmatig lopen.'));
+			$a_result = array('defaultAnswer' => array('defaultAnswer_uuid' => '123456', 'answer_title' => 'Standaard reactie rugprobleem', 'answer_text' => 'Niet onderuit gezakt gaan zitten.'), 'defaultAnswer' => array('defaultAnswer_uuid' => '123456', 'answer_title' => 'Standaard reactie voetprobleem', 'answer_text' => 'Regelmatig lopen.'));
 			
 			// Resultaat terugsturen
-			echo json_encode($result);			
+			echo json_encode($a_result);			
 		}
 		
 		// Standaard antwoord bewerken
@@ -291,25 +291,25 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$defaultAnswer_uuid = $params->defaultAnswer_uuid;
-			$answer_title = $params->answer_title;
-			$answer_text = $params->answer_text;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_defaultAnswer_uuid = $params->defaultAnswer_uuid;
+			$s_answer_title = $params->answer_title;
+			$s_answer_text = $params->answer_text;
 			
-			if($answer_title == 'test')
+			if($s_answer_title == 'test')
 			{
 				// Gelukt
-				$result = array('status' => 'saved');
+				$a_result = array('status' => 'saved');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'not saved');
+				$a_result = array('status' => 'not saved');
 			}
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// Standaard antwoord verwijderen
@@ -319,23 +319,23 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$defaultAnswer_uuid = $params->defaultAnswer_uuid;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_defaultAnswer_uuid = $params->defaultAnswer_uuid;
 			
-			if($defaultAnswer_uuid == '123456')
+			if($s_defaultAnswer_uuid == '123456')
 			{
 				// Gelukt
-				$result = array('status' => 'deleted');
+				$a_result = array('status' => 'deleted');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'not deleted');
+				$a_result = array('status' => 'not deleted');
 			}
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// SPORTER -----------------------------------------------------
@@ -346,26 +346,26 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$sporter_uuid = $params->sporter_uuid;
-			$firstName = $params->firstName;
-			$lastName = $params->lastName;
-			$age = $params->age;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_sporter_uuid = $params->sporter_uuid;
+			$s_firstName = $params->firstName;
+			$s_lastName = $params->lastName;
+			$i_age = $params->age;
 			
-			if($firstName == 'test')
+			if($s_firstName == 'test')
 			{
 				// Gelukt
-				$result = array('status' => 'saved');
+				$a_result = array('status' => 'saved');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'not saved');
+				$a_result = array('status' => 'not saved');
 			}
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// Overzicht sporters
@@ -375,14 +375,14 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$sportclub_uuid = $params->sportclub_uuid;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_sportclub_uuid = $params->sportclub_uuid;
 			
-			$result = array('sporter' => array('sporter_uuid' => '321654', 'firstName' => 'Michel', 'lastName' => 'Mertens', 'age' => '15'), 'sporter' => array('sporter_uuid' => '987654', 'firstName' => 'Sven', 'lastName' => 'Molhuijsen', 'age' => '110'));
+			$a_result = array('sporter' => array('sporter_uuid' => '321654', 'firstName' => 'Michel', 'lastName' => 'Mertens', 'age' => '15'), 'sporter' => array('sporter_uuid' => '987654', 'firstName' => 'Sven', 'lastName' => 'Molhuijsen', 'age' => '110'));
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// Sporter weergeven
@@ -392,14 +392,14 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$sporter_uuid = $params->sporter_uuid;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_sporter_uuid = $params->sporter_uuid;
 			
-			$result = array('firstName' => 'Michel', 'lastName' => 'Mertens', 'age' => '15');
+			$a_result = array('firstName' => 'Michel', 'lastName' => 'Mertens', 'age' => '15');
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// THERAPEUT ---------------------------------------------------
@@ -410,27 +410,27 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$firstName = $params->firstName;
-			$lastName = $params->lastName;
-			$mail = $params->mail;
-			$password = $params->password;
-			$isAdmin = $params->isAdmin;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_firstName = $params->firstName;
+			$s_lastName = $params->lastName;
+			$s_mail = $params->mail;
+			$s_password = $params->password;
+			$i_isAdmin = $params->isAdmin;
 			
-			if($firstName == 'test')
+			if($s_firstName == 'test')
 			{
 				// Gelukt
-				$result = array('status' => 'saved');
+				$a_result = array('status' => 'saved');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'not saved');
+				$a_result = array('status' => 'not saved');
 			}
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// Therapeut toevoegen
@@ -440,27 +440,27 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$firstName = $params->firstName;
-			$lastName = $params->lastName;
-			$mail = $params->mail;
-			$password = $params->password;
-			$isAdmin = $params->isAdmin;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_firstName = $params->firstName;
+			$s_lastName = $params->lastName;
+			$s_mail = $params->mail;
+			$s_password = $params->password;
+			$i_isAdmin = $params->isAdmin;
 			
-			if($firstName == 'test')
+			if($s_firstName == 'test')
 			{
 				// Gelukt
-				$result = array('status' => 'saved');
+				$a_result = array('status' => 'saved');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'not saved');
+				$a_result = array('status' => 'not saved');
 			}
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// DOORKLIK CATEGORIE ------------------------------------------
@@ -471,13 +471,13 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
 			
-			$result = array('flowchartCategory' => array('category_uuid' => '123456', 'category_title' => 'Onderbeen', 'category_description' => 'Alle tips over onderbeen pijn'), 'flowchartCategory' => array('category_uuid' => '1234567', 'category_title' => 'Bovenbeen', 'category_description' => 'Alle tips over bovenbeen pijn'));
+			$a_result = array('flowchartCategory' => array('category_uuid' => '123456', 'category_title' => 'Onderbeen', 'category_description' => 'Alle tips over onderbeen pijn'), 'flowchartCategory' => array('category_uuid' => '1234567', 'category_title' => 'Bovenbeen', 'category_description' => 'Alle tips over bovenbeen pijn'));
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// Doorklik categorie toevoegen
@@ -487,24 +487,24 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$category_title = $params->category_title;
-			$category_description = $params->category_description;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_category_title = $params->category_title;
+			$s_category_description = $params->category_description;
 			
-			if($category_title == 'test')
+			if($s_category_title == 'test')
 			{
 				// Gelukt
-				$result = array('status' => 'saved');
+				$a_result = array('status' => 'saved');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'not saved');
+				$a_result = array('status' => 'not saved');
 			}
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// Doorklik categorie bewerken
@@ -514,25 +514,25 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$category_uuid = $params->category_uuid;
-			$category_title = $params->category_title;
-			$category_description = $params->category_description;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_category_uuid = $params->category_uuid;
+			$s_category_title = $params->category_title;
+			$s_category_description = $params->category_description;
 			
-			if($category_title == 'test')
+			if($s_category_title == 'test')
 			{
 				// Gelukt
-				$result = array('status' => 'saved');
+				$a_result = array('status' => 'saved');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'not saved');
+				$a_result = array('status' => 'not saved');
 			}
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// Doorklik categorie verwijderen
@@ -542,23 +542,23 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$category_uuid = $params->category_uuid;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_category_uuid = $params->category_uuid;
 			
-			if($category_uuid == '123456')
+			if($s_category_uuid == '123456')
 			{
 				// Gelukt
-				$result = array('status' => 'deleted');
+				$a_result = array('status' => 'deleted');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'not deleted');
+				$a_result = array('status' => 'not deleted');
 			}
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// DOORKLIK ITEMS ----------------------------------------------
@@ -569,14 +569,14 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$category_uuid = $params->category_uuid;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_category_uuid = $params->category_uuid;
 			
-			$result = array('flowchartItem' => array('item_uuid' => '123456', 'item_title' => 'Koelen', 'item_text' => 'Een goede manier is de pijnlijke plek koelen'), 'flowchartItem' => array('item_uuid' => '1234567', 'item_title' => 'Verwarmen', 'item_text' => 'Een goede manier is de pijnlijke plek verwarmen'));
+			$a_result = array('flowchartItem' => array('item_uuid' => '123456', 'item_title' => 'Koelen', 'item_text' => 'Een goede manier is de pijnlijke plek koelen'), 'flowchartItem' => array('item_uuid' => '1234567', 'item_title' => 'Verwarmen', 'item_text' => 'Een goede manier is de pijnlijke plek verwarmen'));
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// Doorklik item toevoegen
@@ -586,25 +586,25 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$category_uuid = $params->category_uuid;
-			$item_title = $params->item_title;
-			$item_text = $params->item_text;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_category_uuid = $params->category_uuid;
+			$s_item_title = $params->item_title;
+			$s_item_text = $params->item_text;
 			
-			if($item_title == 'test')
+			if($s_item_title == 'test')
 			{
 				// Gelukt
-				$result = array('status' => 'saved');
+				$a_result = array('status' => 'saved');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'not saved');
+				$a_result = array('status' => 'not saved');
 			}
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// Doorklik item bewerken
@@ -614,26 +614,26 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$category_uuid = $params->category_uuid;
-			$item_uuid = $params->item_uuid;
-			$item_title = $params->item_title;
-			$item_text = $params->item_text;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_category_uuid = $params->category_uuid;
+			$s_item_uuid = $params->item_uuid;
+			$s_item_title = $params->item_title;
+			$s_item_text = $params->item_text;
 			
-			if($item_title == 'test')
+			if($s_item_title == 'test')
 			{
 				// Gelukt
-				$result = array('status' => 'saved');
+				$a_result = array('status' => 'saved');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'not saved');
+				$a_result = array('status' => 'not saved');
 			}
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 		
 		// Doorklik item verwijderen
@@ -643,24 +643,24 @@
 			$params = json_decode($params);
 			
 			// Variabelen uit object halen
-			$therapist_uuid = $params->therapist_uuid;
-			$practice_uuid = $params->practice_uuid;
-			$category_uuid = $params->category_uuid;
-			$item_uuid = $params->item_uuid;
+			$s_therapist_uuid = $params->therapist_uuid;
+			$s_practice_uuid = $params->practice_uuid;
+			$s_category_uuid = $params->category_uuid;
+			$s_item_uuid = $params->item_uuid;
 			
-			if($item_uuid == '123456')
+			if($s_item_uuid == '123456')
 			{
 				// Gelukt
-				$result = array('status' => 'deleted');
+				$a_result = array('status' => 'deleted');
 			}
 			else
 			{
 				// Niet gelukt
-				$result = array('status' => 'not deleted');
+				$a_result = array('status' => 'not deleted');
 			}
 			
 			// Resultaat terugsturen
-			echo json_encode($result);
+			echo json_encode($a_result);
 		}
 	}
 ?>

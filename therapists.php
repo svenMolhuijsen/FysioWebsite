@@ -149,7 +149,6 @@
 
     <?php require_once("content/php-include/footer.php"); ?>
         <script>
-            var practiceUUID = "thatOneID";
-            var userUUID = "anotherID";
+
 
         </script>

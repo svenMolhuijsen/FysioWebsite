@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
             //HTML EDITOR AANZETTEN
             $(function () {
                 $('[data-toggle="tooltip"]').tooltip();
@@ -46,4 +47,6 @@ $(document).ready(function () {
                 // Geen cookie gevonden
                 return '';
             }
+            var practiceUUID = getCookie("practice_uuid");
+            var userUUID = getCookie("practice_uuid");
         }

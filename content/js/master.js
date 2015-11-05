@@ -47,6 +47,6 @@ $(document).ready(function () {
                 // Geen cookie gevonden
                 return '';
             }
-            var practiceUUID = getCookie("practice_uuid");
-            var userUUID = getCookie("practice_uuid");
+            var uuid_Practice = getCookie("practice_uuid");
+            var UUID_User = getCookie("practice_uuid");
         }

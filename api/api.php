@@ -105,10 +105,6 @@ switch($action)
     $params = array($_POST['practice_id'], $_POST['auto_answer_id']);
     deleteDefaultAnswer($params);
     break;
-    
-    default:
-        header("HTTP/1.0 404 Not Found");
-    break;
 
     // Flowchart categorie toevoegen
     case 'addFlowchartCategory':
@@ -331,7 +327,8 @@ function changeSportclub($params)
   echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
-<<<<<<< HEAD
+
+    function listTherapist($params){
     if($practice == "theClubId")
     {
         $result = array("status"=>"success", "users" =>array("user"=>array("userID"=>"123122", "voornaam" => "Henk" "achternaam" =>"Baltissen", "specialismen"=>"knie, enkel", "datum-in-dienst"=>"1997-04-01", "geboortedatum"=>"1997-04-01", "geslacht"=>"m" "email"=>"Bart.Kessels@gmail.com", "telefoonnummer"=>"31634194230"));
@@ -343,8 +340,7 @@ function changeSportclub($params)
 
     echo json_encode($result, JSON_PRETTY_PRINT);
 }
-=======
->>>>>>> fysioApp/master
+
 // Therapeut wijzigen
 function changeTherapist($params)
 {

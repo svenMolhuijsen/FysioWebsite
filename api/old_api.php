@@ -9,49 +9,49 @@ switch($action)
         $params = array($_POST['mail'], $_POST['password']);
         login($params);
     break;
-    
+
     // Wachtwoord vergeten
     case 'forgotPassword':
     $params = array($_POST['mail']);
     forgotPassword($params);
     break;
-    
+
     // Wachtwoord wijzigen
     case 'changePassword':
     $params = array($_POST['uuid'], $_POST['oldPassword'], $_POST['newPassword']);
     changePassword($params);
     break;
-    
+
     // Sportclub toevoegen
     case 'addSportclub':
     $params = array($_POST['name'], $_POST['address'], $_POST['zipcode'], $_POST['location'], $_POST['phone'], $_POST['mail'], $_POST['contact_person']);
     addSportclub($params);
     break;
-    
+
     // Bericht versturen
     case 'sendMessage':
     $params = array($_POST['therapist_id'], $_POST['sporter_id'], $_POST['chat_message']);
     sendMessage($params);
     break;
-    
+
     // Standaard antwoord toevoegen
     case 'addDefaultAnswer':
     $params = array($_PSOT['practice_id'], $_POST['therapist_id'], $_POST['answer_title'], $_POST['answer_text']);
     addDefaultAnswer($params);
     break;
-    
+
     // Standaard antwoord versturen
     case 'sentDefaultAnswer':
     $params = array($_POST['practice_id'], $_POST['therapist_id'], $_POST['answer_text']);
     sentDefaultAnswer($params);
     break;
-    
+
     // Sporter wijzigen
     case 'changeSporter':
     $params = array($_POST['practice_id'], $_POST['sporter_id'], $_POST['firstName'], $_POST['lastName'], $_POST['age']);
     changeSporter($params);
     break;
-    
+
     // Sportclub wijzigen
     case 'changeSportclub':
     $params = array($_POST['sportclub_id'], $_POST['name'], $_POST['address'], $_POST['zipcode'], $_POST['city'], $_POST['phone'], $_POST['mail']);
@@ -63,43 +63,43 @@ switch($action)
     $params = array($_POST['practice_id'], $_POST['therapist_id'], $_POST['firstname'], $_POST['lastname'], $_POST['isAdmin']);
     changeTherapist($params);
     break;
-    
+
     // Sportclubs weergeven
     case 'listSportclubs':
     $params = array($_POST['practice_id']);
     listSportclubs($params);
     break;
-    
+
     // Sporters weergeven
     case 'listSporters':
     $params = array($_POST['practice_id'], $_POST['sportclub_id']);
     listSporters($params);
     break;
-    
+
     // Sporter weergeven
     case 'displaySporter':
     $params = array($_POST['practice_id'], $_POST['sporter_id']);
     displaySporter($params);
     break;
-    
+
     // Sportclub verwijderen
     case 'deleteSportclub':
     $params = array($_POST['practice_id'], $_POST['sportclub_id']);
     deleteSportclub($params);
     break;
-    
+
     // Chat archiveren
     case 'archiveChat':
     $params = array($_POST['practice_id'], $_POST['chat_id']);
     archiveChat($params);
     break;
-    
+
     // Standaard antwoord bewerken
     case 'editDefaultAnswer':
     $params = array($_POST['practice_id'], $_POST['therapist_id'], $_POST['answer_title'], $_POST['answer_text']);
     editDefaultAnswer($params);
     break;
-    
+
     // Standaard antwoord verwijderen
     case 'deleteDefaultAnswer':
     $params = array($_POST['practice_id'], $_POST['auto_answer_id']);
@@ -152,7 +152,7 @@ function login($params)
 {
     $mail = $params[0];
     $password = $params[1];
-    
+
     if($mail == "test" && $password == "test")
     {
         $result = array('status' => 'success', 'uuid' => '28e23bf2-5885-4029-9a9c-6471237db2e8', 'practice_uuid' => '1234-654sf-KSDFI-4597');
@@ -161,7 +161,7 @@ function login($params)
     {
         $result = array('status' => 'unsuccessful');
     }
-    
+
     echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
@@ -169,7 +169,7 @@ function login($params)
 function forgotPassword($params)
 {
   $mail = $params[0];
-  
+
   if($mail == 'test')
   {
     $result = array('status' => 'sent');
@@ -178,7 +178,7 @@ function forgotPassword($params)
   {
     $result = array('status' => 'not send');
   }
-  
+
   echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
@@ -188,7 +188,7 @@ function changePassword($params)
   $uuid = $params[0];
   $oldPassword = $params[1];
   $newPassword = $params[2];
-  
+
   if($uuid == '1234')
   {
     $result = array('status' => 'success');
@@ -197,7 +197,7 @@ function changePassword($params)
   {
     $result = array('status' => 'unsuccessful');
   }
-  
+
   echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
@@ -211,7 +211,7 @@ function addSportclub($params)
   $phone = $params[4];
   $mail = $params[5];
   $contact_person = $params[6];
-  
+
   if($name == 'error')
   {
     $result = array('status' => 'saved');
@@ -220,7 +220,7 @@ function addSportclub($params)
   {
     $result = array('status' => 'not saved');
   }
-  
+
   echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
@@ -230,7 +230,7 @@ function sendMessage($params)
   $therapist_id = $params[0];
   $sporter_id = $params[1];
   $chat_message = $params[2];
-  
+
   if($therapist_id == '1')
   {
     $result = array('status' => 'saved');
@@ -239,7 +239,7 @@ function sendMessage($params)
   {
     $result = array('status' => 'not saved');
   }
-  
+
   echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
@@ -249,7 +249,7 @@ function addDefaultAnswer($params)
     $therapist_id = $params[0];
     $sporter_id = $params[1];
     $chat_message = $params[2];
-    
+
     if($therapist_id == '1')
     {
       $result = array('status' => 'sent');
@@ -258,7 +258,7 @@ function addDefaultAnswer($params)
     {
       $result = array('status' => 'not sent');
     }
-    
+
     echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
@@ -269,7 +269,7 @@ function sentDefaultAnswer($params)
   $therapist_id = $params[1];
   $answer_title = $params[2];
   $answer_text = $params[3];
-  
+
   if($practice_id == '1')
   {
     $result = array('status' => 'sent');
@@ -278,7 +278,7 @@ function sentDefaultAnswer($params)
   {
     $result = array('status' => 'not sent');
   }
-  
+
   echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
@@ -290,7 +290,7 @@ function changeSporter($params)
   $firstName = $params[2];
   $lastName = $params[3];
   $age = $params[4];
-  
+
   if($practice_id == '1')
   {
     $result = array('status' => 'saved');
@@ -299,7 +299,7 @@ function changeSporter($params)
   {
     $result = array('status' => 'not saved');
   }
-  
+
   echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
@@ -314,7 +314,7 @@ function changeSportclub($params)
   $phone = $params[5];
   $mail = $params[6];
   $contact_person = $params[7];
-  
+
   if($sportclub_id == '1')
   {
     $result = array('status' => 'saved');
@@ -323,7 +323,7 @@ function changeSportclub($params)
   {
     $result = array('status' => 'not saved');
   }
-  
+
   echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
@@ -348,7 +348,7 @@ function changeTherapist($params)
   $therapist_id = $params[1];
   $firstname = $params[2];
   $isAdmin = $params[3];
-  
+
   if($practice_id == '1')
   {
     $result = array('result' => 'saved');
@@ -357,7 +357,7 @@ function changeTherapist($params)
   {
     $result = array('result' => 'not saved');
   }
-  
+
   echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
@@ -365,7 +365,7 @@ function changeTherapist($params)
 function listSportclubs($params)
 {
   $practice_id = $params[0];
-  
+
   if($practice_id == '1')
   {
     $result = array('sportclub' => array('name' => 'Ajax', 'contact_person' => 'Hans'), 'sportclub' => array('name' => 'PSV', 'contact_person' => 'HEnk'));
@@ -374,7 +374,7 @@ function listSportclubs($params)
   {
     $result = array('status', 'not found');
   }
-  
+
   echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
@@ -383,7 +383,7 @@ function listSporters($params)
 {
   $practice_id = $params[0];
   $sporter_id = $params[1];
-  
+
   if($practice_id == '1')
   {
     $result = array('sporter' => array('firstname' => 'Jan', 'lastname' => 'Janssen', 'age' => '13'), 'sporter' => array('firstname' => 'Hans', 'lastname' => 'Hanssen', 'age' => '36'));
@@ -392,7 +392,7 @@ function listSporters($params)
   {
     $result = array('status' => 'not found');
   }
-  
+
   echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
@@ -401,7 +401,7 @@ function displaySporter($params)
 {
   $practice_id = $params[0];
   $sporter_id = $params[1];
-  
+
   if($practice_id == '1')
   {
     $result = array('firstname' => 'Jan', 'lastname' => 'Janssen', 'age' => '345');
@@ -410,7 +410,7 @@ function displaySporter($params)
   {
     $result = array('status' => 'not found');
   }
-  
+
   echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
@@ -419,7 +419,7 @@ function deleteSportclub($params)
 {
   $practice_id = $params[0];
   $sportclub_id = $params[1];
-  
+
   if($practice_id == '1')
   {
     $result = array('status' => 'deleted');
@@ -428,7 +428,7 @@ function deleteSportclub($params)
   {
     $result = array('status' => 'not deleted');
   }
-  
+
   echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
@@ -437,7 +437,7 @@ function archiveChat($params)
 {
   $practice_id = $params[0];
   $chat_id = $params[1];
-  
+
   if($practice_id == '1')
   {
     $result = array('status' => 'archived');
@@ -446,7 +446,7 @@ function archiveChat($params)
   {
     $result = array('status' => 'not archived');
   }
-  
+
   echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
@@ -457,7 +457,7 @@ function editDefaultAnswer($params)
   $therapist_id = $params[1];
   $answer_title = $params[2];
   $answer_text = $params[3];
-  
+
   if($practice_id == '1')
   {
     $result = array('status' => 'saved');
@@ -466,7 +466,7 @@ function editDefaultAnswer($params)
   {
     $result = array('status' => 'not saved');
   }
-  
+
   echo json_encode($result, JSON_PRETTY_PRINT);
 }
 
@@ -475,7 +475,7 @@ function deleteDefaultAnswer($params)
 {
   $practice_id = $params[0];
   $auto_answer_id = $params[1];
-  
+
   if($practice_id == '1')
   {
     $result = array('status' => 'deleted');
@@ -484,7 +484,7 @@ function deleteDefaultAnswer($params)
   {
     $result = array('status' => 'not deleted');
   }
-  
+
   echo json_encode($result, JSON_PRETTY_PRINT);
 }
 

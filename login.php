@@ -105,6 +105,5 @@
                 $iconTag.removeClass($iconClass + " " + $divClass);
             }, $msgShowTime);
         }
-        });
     </script>
     <?php require_once("content/php-include/footer.php "); ?>

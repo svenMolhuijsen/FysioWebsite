@@ -6,7 +6,6 @@
                 //INLOGGEN
                 var txt_login_username = $('#txt_login_username').val();
                 var pswd_txt_login_password = $('#pswd_txt_login_password').val();
-                alert("test");
                 $.post(s_CoreAdress + "?action=login", {
                         mail: txt_login_username,
                         password: pswd_txt_login_password
@@ -15,11 +14,8 @@
                         data = $.parseJSON(data);
                         if (data["login"] == "true") {
                             msgChange($('#div-login-msg'), $('#icon-login-msg'), $('#text-login-msg'), "success", "glyphicon-ok", "Login OK");
-                            alert("test1");
-
                         } else {
                             msgChange($('#div-login-msg'), $('#icon-login-msg'), $('#text-login-msg'), "error", "glyphicon-remove", "Er ging iets mis bij inloggen");
-                            alert("test2");
                         }
                     })
                     .fail(function () {

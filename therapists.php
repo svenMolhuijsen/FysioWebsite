@@ -146,9 +146,7 @@
         </div>
 
     </div>
-
+    <script>
+        //functies en variabelen voor includes
+    </script>
     <?php require_once("content/php-include/footer.php"); ?>
-        <script>
-
-
-        </script>

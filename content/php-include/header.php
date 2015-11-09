@@ -11,6 +11,8 @@
     <link href="content/css/roboto.min.css" rel="stylesheet">
     <link href="content/css/material.min.css" rel="stylesheet">
     <link rel="stylesheet" href="content/css/style.css" />
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 </head>
 

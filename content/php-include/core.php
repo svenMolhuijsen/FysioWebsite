@@ -4,17 +4,18 @@
 	$action = $_GET['action'];
 	switch($action)
 	{
+            /////////////////////////////////////////////////////////////////////////////////klaar
 		// Inloggen
 		case 'login':
 			$params = array($_POST['mail'], $_POST['password']);
 			login($params);
 		break;
-		
+
 		// Uitloggen
 		case 'logout':
 			logout();
 		break;
-		
+		      /////////////////////////////////////////////////////////////////////////////////klaar
 		// Wachtwoord vergeten
 		case 'forgotPassword':
 			$params = array($_POST['mail']);
@@ -26,7 +27,7 @@
 			$params = array($_POST['oldPassword'], $_POST['newPassword']);
 			changePassword($params);
 		break;
-		
+		      /////////////////////////////////////////////////////////////////////////////////klaar
 		// Sportclub toevoegen
 		case 'addSportclub':
 			$params = array($_POST['name'], $_POST['address'], $_POST['zipcode'], $_POST['location'], $_POST['phone'], $_POST['mail'], $_POST['contact_person']);
@@ -126,7 +127,7 @@
 			$params = array($_POST['category_uuid']);
 			deleteFlowChartCategory($params);
 		break;
-		
+		/////////////////////////////////////////////////////////////////////////////////klaar
 		// Flowchart item toevoegen
 		case 'addFlowchartItem':
 			$params = array($_POST['category_uuid'], $_POST['item_title'], $_POST['item_text']);
@@ -758,7 +759,7 @@
 			$s_category_description = $params[1];
 			
 			// Kijken of de category is toegevoegd
-			if($s_practice_uuid == '1')
+			if($s_category_title == 'test')
 			{
 				// Is toegevoegd
 				$result = array('login' => 'true', 'status' => 'true');
@@ -822,7 +823,7 @@
 			$s_category_id = $params[0];
 			
 			// Kijken of de category is verwijderd
-			if($s_practice_id == '1')
+			if($s_category_id == '1')
 			{
 				// Is verwijderd
 				$result = array('login' => 'true', 'status' => 'true');
@@ -830,7 +831,7 @@
 			else
 			{
 				// Niet verwijderd
-				$result = array('login' => 'true', 'status' => 'not deleted');
+				$result = array('login' => 'true', 'status' => 'false');
 			}
 		}
 		
@@ -884,15 +885,15 @@
 			$s_item_text = $params[3];
 			
 			// Kijken of het is opgeslagen
-			if($s_practice_uuid == '1')
+			if($s_item_title == 'test')
 			{
 				// Is opgeslagen
-				$result = array('inlog' => 'true', 'status' => 'false');
+				$result = array('inlog' => 'true', 'status' => 'true');
 			}
 			else
 			{
 				// Niet opgeslagen
-				$result = array('inlog' => 'true', 'status' => 'true');
+				$result = array('inlog' => 'true', 'status' => 'false');
 			}
 		}
 		else
@@ -906,7 +907,7 @@
 	}
 	
 	// Flowchart item verwijderen
-	function removeFlowchartItem($params)
+	function deleteFlowchartItem($params)
 	{
 		if(isLoggedIn() == true)
 		{
@@ -916,7 +917,7 @@
 			$s_item_id = $params[1];
 			
 			// Kijken of het is verwijderd
-			if($s_practice_id == '1')
+			if($s_category_id == '1')
 			{
 				// Is verwijderd
 				$result = array('inlog' => 'true', 'status' => 'true');

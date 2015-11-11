@@ -95,3 +95,19 @@ a:hover {
 .editTherapistBtn {
     display: none;
 }
+
+
+/*paginas aanpassen*/
+
+.dropdown-app-inhoud {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.thisshoulddropdown {
+    display: none;
+}
+
+.up {
+    transform: rotate(180deg);
+}

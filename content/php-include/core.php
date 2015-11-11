@@ -271,7 +271,7 @@
 		}
 		else
 		{
-			$result = array('login' => 'false')
+			$result = array('login' => 'false');
 		}
 		
 		echo json_encode($result);
@@ -316,27 +316,35 @@
 			}
 			else
 			{
-				$result = array('status' => 'false');
+				$result = array('login' => 'true', 'status' => 'false');
 			}
 		}
-		echo json_encode($result, JSON_PRETTY_PRINT);
+		else
+		{
+			$result = array('login' => 'false');
+		}
+		
+		echo json_encode($result);
 	}
 	
 	// Sporter wijzigen
 	function changeSporter($params)
 	{
-		$practice_id = $params[0];
-		$sporter_id = $params[1];
-		$firstName = $params[2];
-		$lastName = $params[3];
-		$age = $params[4];
-		if($practice_id == '1')
+		if(isLoggedIn() == true)
 		{
-			$result = array('status' => 'saved');
-		}
-		else
-		{
-			$result = array('status' => 'not saved');
+			$practice_id = $params[0];
+			$sporter_id = $params[1];
+			$firstName = $params[2];
+			$lastName = $params[3];
+			$age = $params[4];
+			if($practice_id == '1')
+			{
+				$result = array('status' => 'saved');
+			}
+			else
+			{
+				$result = array('status' => 'not saved');
+			}
 		}
 		echo json_encode($result, JSON_PRETTY_PRINT);
 	}

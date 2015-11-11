@@ -3,8 +3,6 @@
     var page = path.split("/").pop();
     var host = window.location.hostname;
 
-    $(document).ready(function () {
-
         function checklogin(data) {
             s_LoginStatus = data["login"];
 
@@ -22,8 +20,7 @@
             }
         }
 
-
-
+    $(document).ready(function () {
 
 
 

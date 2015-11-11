@@ -562,148 +562,272 @@
 	// Sporters weergeven
 	function listSporters($params)
 	{
-		$s_practice_id = $params[0];
-		$s_sporter_id = $params[1];
-		if($s_practice_id == '1')
+		if(isLoggedIn() == true)
 		{
-			$result = array('sporter' => array('firstname' => 'Jan', 'lastname' => 'Janssen', 'age' => '13'), 'sporter' => array('firstname' => 'Hans', 'lastname' => 'Hanssen', 'age' => '36'));
+			// Gegevens uit parameters halen
+			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_sporter_id = $params[0];
+			
+			// Kijken of er sporters zijn
+			if($s_practice_uuid == '1')
+			{
+				// Er zijn sporters
+				$result = array('login' => 'true', 'status' => 'true', 'sporter' => array('firstname' => 'Jan', 'lastname' => 'Janssen', 'age' => '13'), 'sporter' => array('firstname' => 'Hans', 'lastname' => 'Hanssen', 'age' => '36'));
+			}
+			else
+			{
+				// Er zijn geen sporters
+				$result = array('login' => 'true', 'status' => 'false');
+			}
 		}
 		else
 		{
-			$result = array('status' => 'not found');
+			// Niet ingelogd
+			$result = array('login' => 'false');
 		}
-		echo json_encode($result, JSON_PRETTY_PRINT);
+		
+		// Resultaat terugsturen
+		echo json_encode($result);
 	}
 	
 	// Sporter weergeven
 	function displaySporter($params)
 	{
-		$s_practice_id = $params[0];
-		$s_sporter_id = $params[1];
-		if($s_practice_id == '1')
+		if(isLoggedIn() == true)
 		{
-			$result = array('firstname' => 'Jan', 'lastname' => 'Janssen', 'age' => '345');
+			// Gegevens uit parameters halen
+			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_sporter_uuid = $params[0];
+			
+			// Kijken of er sporters zijn
+			if($s_practice_uuid == '1')
+			{
+				// Er zijn sporters
+				$result = array('login' => 'true', 'status' => 'true', 'firstname' => 'Jan', 'lastname' => 'Janssen', 'age' => '345');
+			}
+			else
+			{
+				// Geen sporters
+				$result = array('login' => 'true', 'status' => 'false');
+			}
 		}
 		else
 		{
-			$result = array('status' => 'not found');
+			// Niet ingelogd
+			$result = array('login' => 'false');
 		}
-		echo json_encode($result, JSON_PRETTY_PRINT);
+		
+		// Resultaat terugsturen
+		echo json_encode($result);
 	}
 	
 	// Sportclub verwijderen
 	function deleteSportclub($params)
 	{
-		$s_practice_id = $params[0];
-		$s_sportclub_id = $params[1];
-		if($s_practice_id == '1')
+		if(isLoggedIn() == true)
 		{
-			$result = array('status' => 'deleted');
+			// Gegevens uit parameters halen
+			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_sportclub_uuid = $params[0];
+			
+			// Kijken of de sportclub is verwijderd
+			if($s_practice_uuid == '1')
+			{
+				// Is verwijderd
+				$result = array('login' => 'true', 'status' => 'true');
+			}
+			else
+			{
+				// Niet verwijderd
+				$result = array('login' => 'true', 'status' => 'false');
+			}
 		}
 		else
 		{
-			$result = array('status' => 'not deleted');
+			// Niet ingelogd
+			$result = array('login' => 'false');
 		}
-		echo json_encode($result, JSON_PRETTY_PRINT);
+		
+		// Resultaat terugsturen
+		echo json_encode($result);
 	}
 	
 	// Chat archiveren
 	function archiveChat($params)
 	{
-		$s_practice_id = $params[0];
-		$s_chat_id = $params[1];
-		if($s_practice_id == '1')
+		if(isLoggedIn() == true)
 		{
-			$result = array('status' => 'archived');
+			// Gegevens uit parameters halen
+			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_chat_id = $params[0];
+			
+			// Kijken of de chat is gearchiveerd
+			if($s_practice_id == '1')
+			{
+				// Is gearchiveerd
+				$result = array('login' => 'true', 'status' => 'true');
+			}
+			else
+			{
+				// Niet gearchiveerd
+				$result = array('login' => 'true', 'status' => 'false');
+			}
 		}
 		else
 		{
-			$result = array('status' => 'not archived');
+			// Niet ingelogd
+			$result = array('login' => 'false');
 		}
-		echo json_encode($result, JSON_PRETTY_PRINT);
+		
+		// Resultaat terugsturen
+		echo json_encode($result);
 	}
 	
 	// Standaard antwoord wijzigen
 	function editDefaultAnswer($params)
 	{
-		$s_practice_id = $params[0];
-		$s_therapist_id = $params[1];
-		$s_answer_title = $params[2];
-		$s_answer_text = $params[3];
-		if($s_practice_id == '1')
+		if(isLoggedIn() == true)
 		{
-			$result = array('status' => 'saved');
+			// Gegevens uit parameters halen
+			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_therapist_uuid = $_SESSION['therapist_uuid'];
+			$s_answer_title = $params[0];
+			$s_answer_text = $params[1];
+			
+			// Kijken of het antwoord is opgeslagen
+			if($s_practice_id == '1')
+			{
+				// Is opgeslagen
+				$result = array('login' => 'true', 'status' => 'true');
+			}
+			else
+			{
+				// Niet opgeslagen
+				$result = array('login' => 'true', 'status' => 'false');
+			}
 		}
 		else
 		{
-			$result = array('status' => 'not saved');
+			// Niet ingelogd
+			$result = array('login' => 'false');
 		}
-		echo json_encode($result, JSON_PRETTY_PRINT);
+		
+		// Resultaat terugsturen
+		echo json_encode($result);
 	}
 	
 	// Standaard antwoord verwijderen
 	function deleteDefaultAnswer($params)
 	{
-		$s_practice_id = $params[0];
-		$s_auto_answer_id = $params[1];
-		if($s_practice_id == '1')
+		if(isLoggedIn() == true)
 		{
-			$result = array('status' => 'deleted');
+			// Gegevens uit parameters halen
+			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_auto_answer_uuid = $params[0];
+			
+			// Kijken of het antwoord is verwijderd
+			if($s_practice_uuid == '1')
+			{
+				// Is verwijderd
+				$result = array('login' => 'true', 'status' => 'true');
+			}
+			else
+			{
+				// Niet verwijderd				
+				$result = array('login' => 'true', 'status' => 'false');
+			}
 		}
 		else
 		{
-			$result = array('status' => 'not deleted');
+			// Niet ingelogd
+			$result = array('login' => 'false');
 		}
-		echo json_encode($result, JSON_PRETTY_PRINT);
+		
+		// Resultaat terugsturen
+		echo json_encode($result);
 	}
 	
 	// Flowchart categorie opslaan
 	function addFlowchartCategory($params)
 	{
-		$s_practice_id = $params[0];
-		$s_category_title = $params[1];
-		$s_category_description = $params[2];
-		if($s_practice_id == '1')
+		if(isLoggedIn() == true)
 		{
-			$result = array('status' => 'added');
+			// Gegevens uit parameters halen
+			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_category_title = $params[0];
+			$s_category_description = $params[1];
+			
+			// Kijken of de category is toegevoegd
+			if($s_practice_uuid == '1')
+			{
+				// Is toegevoegd
+				$result = array('login' => 'true', 'status' => 'true');
+			}
+			else
+			{
+				// Is niet toegevoegd
+				$result = array('login' => 'true', 'status' => 'false');
+			}
 		}
 		else
 		{
-			$result = array('status' => 'not added');
+			// Niet ingelogd
+			$result = array('login' => 'false');
 		}
-		echo json_encode($result, JSON_PRETTY_PRINT);
+		
+		// Resultaat terugsturen
+		echo json_encode($result);
 	}
 	
 	// Flowchart categorie bewerken
 	function editFlowchartCategory($params)
 	{
-		$s_practice_id = $params[0];
-		$s_category_id = $params[1];
-		$s_category_title = $params[2];
-		$s_category_description = $params[3];
-		if($s_practice_id == '1')
+		if(isLoggedIn() == true)
 		{
-			$result = array('status' => 'saved');
+			// Gegevens uit parameters halen
+			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_category_uuid = $params[0];
+			$s_category_title = $params[1];
+			$s_category_description = $params[2];
+			
+			// Kijken of de category is opgeslagen
+			if($s_practice_id == '1')
+			{
+				// Is opgeslagen
+				$result = array('login' => 'true', 'status' => 'true');
+			}
+			else
+			{
+				// Is niet opgeslagen
+				$result = array('login' => 'true', 'status' => 'false');
+			}
 		}
 		else
 		{
-			$result = array('status' => 'not saved');
+			// Niet ingelogd
+			$result = array('login' => 'false');
 		}
-		echo json_encode($result, JSON_PRETTY_PRINT);
+		
+		// Resultaat terugsturen
+		echo json_encode($result);
 	}
 	
 	// Flowchart categorie verwijderen
 	function deleteFlowchartCategory($params)
 	{
-		$s_practice_id = $params[0];
-		$s_category_id = $params[1];
-		if($s_practice_id == '1')
+		if(isLoggedIn() == true)
 		{
-			$result = array('status' => 'deleted');
-		}
-		else
-		{
-			$result = array('status' => 'not deleted');
+			// Gegevens uit parameters halen
+			$s_practice_id = $params[0];
+			$s_category_id = $params[1];
+			if($s_practice_id == '1')
+			{
+				$result = array('status' => 'deleted');
+			}
+			else
+			{
+				$result = array('status' => 'not deleted');
+			}
 		}
 		echo json_encode($result, JSON_PRETTY_PRINT);
 	}

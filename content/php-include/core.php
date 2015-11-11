@@ -1,8 +1,4 @@
 <?php
-	header('Content-Type: text/plain');
-	private $rpc_host = 'http://gildeict.nl/api/fysioapp_1.0.php';
-	private $client = new xmlrpc_client($rpc_host, true);
-
 	$action = $_GET['action'];
 	switch($action)
 	{
@@ -261,7 +257,7 @@
 	{
 		if(isLoggedIn() == true)
 		{
-			$therapist_uuid = $params[0];
+			$therapist_uuid = $_SESSION['therapist_uuid'];
 			$sporter_id = $params[1];
 			$chat_message = $params[2];
 			if($therapist_uuid == '550e8400-e29b-41d4-a716-446655440000')
@@ -275,7 +271,7 @@
 		}
 		else
 		{
-			$result = array('login' => 'true')
+			$result = array('login' => 'false')
 		}
 		
 		echo json_encode($result);
@@ -284,33 +280,44 @@
 	// Standaard antwoord toevoegen
 	function addDefaultAnswer($params)
 	{
-		$therapist_id = $params[0];
-		$sporter_id = $params[1];
-		$chat_message = $params[2];
-		if($therapist_id == '1')
+		if(isLoggedIn() == true)
 		{
-		  $result = array('status' => 'sent');
+			$therapist_uuid = $_SESSION['therapist_uuid'];
+			$sporter_id = $params[0];
+			$chat_message = $params[1];
+			if($therapist_uuid == '550e8400-e29b-41d4-a716-446655440000')
+			{
+			  $result = array('login' => 'true', 'status' => 'true');
+			}
+			else
+			{
+			  $result = array('login' => 'true', 'status' => 'false');
+			}
 		}
 		else
 		{
-		  $result = array('status' => 'not sent');
+			$result = array('login' => 'false');
 		}
-		echo json_encode($result, JSON_PRETTY_PRINT);
+		
+		echo json_encode($result);
 	}
 	// Standaard antwoord versturen
 	function sentDefaultAnswer($params)
 	{
-		$practice_id = $params[0];
-		$therapist_id = $params[1];
-		$answer_title = $params[2];
-		$answer_text = $params[3];
-		if($practice_id == '1')
+		if(isLoggedIn() == true)
 		{
-			$result = array('status' => 'sent');
-		}
-		else
-		{
-			$result = array('status' => 'not sent');
+			$practice_uuid = $_SESSION['practice_uuid'];
+			$therapist_uuid = $_SESSION['therapist_uuid'];
+			$answer_title = $params[0];
+			$answer_text = $params[1];
+			if($therapist_uuid == '550e8400-e29b-41d4-a716-446655440000')
+			{
+				$result = array('login' => 'true', 'status' => 'true');
+			}
+			else
+			{
+				$result = array('status' => 'false');
+			}
 		}
 		echo json_encode($result, JSON_PRETTY_PRINT);
 	}
@@ -603,28 +610,5 @@
 			$result = array('status' => 'not deleted');
 		}
 		echo json_encode($result, JSON_PRETTY_PRINT);
-	}
-	
-	// XMLRPC
-	class xmlrpc_client
-	{
-		private $url;
-		
-		function __construct($url, $autoload = true)
-		{
-			$this->url = $url;
-			
-			if($autoload == true)
-			{
-				$resp = $this->call('system.listMethods', null);
-				$this->methods = $resp;
-			}
-		}
-		
-		public function call($method, $params = null)
-		{
-			$post = xmlrpc_encode_request($method, $params);
-			return xmlrpc_decode($this->connection->post($this->url, $post);
-		}
 	}
 ?>

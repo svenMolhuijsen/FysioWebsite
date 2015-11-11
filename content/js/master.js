@@ -1,24 +1,24 @@
-    var s_CoreAdress = "core.php";
+    var s_CoreAdress = "content/php-include/core.php";
     var path = window.location.pathname;
     var page = path.split("/").pop();
     var host = window.location.hostname;
 
-        function checklogin(data) {
-            s_LoginStatus = data["login"];
+    function checklogin(data) {
+        s_LoginStatus = data["login"];
 
-            switch (page) {
-            case "login.php":
-                if (s_LoginStatus == "true") {
-                    location.replace(host + "/index.php");
-                };
-                break;
-            default:
-                if (s_LoginStatus == "false") {
-                    location.replace(host + "/login.php");
-                };
-                break;
-            }
+        switch (page) {
+        case "login.php":
+            if (s_LoginStatus == "true") {
+                location.replace("/index.php");
+            };
+            break;
+        default:
+            if (s_LoginStatus == "false") {
+                location.replace("login.php");
+            };
+            break;
         }
+    }
 
     $(document).ready(function () {
 

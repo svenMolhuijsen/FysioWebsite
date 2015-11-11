@@ -131,6 +131,7 @@
                         });
                     return false;
                     break;
+
                 case "lost-form":
                     //WACHTWOORD VERGETEN
                     var txt_lost_email = $('#txt_lost_email').val();
@@ -140,7 +141,8 @@
                         .done(function (data) {
                             console.log(data);
                             data = $.parseJSON(data);
-                            if (data["status"] == "sent") {
+                            console.log(data["status"]);
+                            if (data["status"] == "true") {
                                 msgChange($('#div-lost-msg'), $('#icon-lost-msg'), $('#text-lost-msg'), "success", "glyphicon-ok", "Er is een mail verzonden naar het opgegeven e-mailadres met instructies");
                             } else {
                                 msgChange($('#div-lost-msg'), $('#icon-lost-msg'), $('#text-lost-msg'), "error", "glyphicon-remove", "Dit e-mail adres is niet gevonden in de database");
@@ -151,6 +153,7 @@
                         });
                     return false;
                     break;
+
                 default:
                     return false;
                     break;

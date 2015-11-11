@@ -818,71 +818,122 @@
 		if(isLoggedIn() == true)
 		{
 			// Gegevens uit parameters halen
-			$s_practice_id = $params[0];
-			$s_category_id = $params[1];
+			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_category_id = $params[0];
+			
+			// Kijken of de category is verwijderd
 			if($s_practice_id == '1')
 			{
-				$result = array('status' => 'deleted');
+				// Is verwijderd
+				$result = array('login' => 'true', 'status' => 'true');
 			}
 			else
 			{
-				$result = array('status' => 'not deleted');
+				// Niet verwijderd
+				$result = array('login' => 'true', 'status' => 'not deleted');
 			}
 		}
-		echo json_encode($result, JSON_PRETTY_PRINT);
+		
+		// Resultaat terugsturen
+		echo json_encode($result);
 	}
 	
 	// Flowchart item toevoegen
 	function addFlowchartItem($params)
 	{
-		$s_practice_id = $params[0];
-		$s_category_id = $params[1];
-		$s_item_title = $params[2];
-		$s_item_text = $params[3];
-		if($s_practice_id == '1')
+		if(isLoggedIn() == true)
 		{
-			$result = array('status' => 'added');
+			// Gegevens uit parameters halen
+			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_category_uuid = $params[0];
+			$s_item_title = $params[1];
+			$s_item_text = $params[2];
+			
+			// Kijken of het item is toegevoegd
+			if($s_practice_id == '1')
+			{
+				// Is toegevoegd
+				$result = array('login' => 'true', 'status' => 'true');
+			}
+			else
+			{
+				// Niet toegevoegd
+				$result = array('login' => 'true', 'status' => 'false');
+			}
 		}
 		else
 		{
-			$result = array('status' => 'not added');
+			// Niet ingelogd
+			$result = array('login' => 'false');
 		}
-		echo json_encode($result, JSON_PRETTY_PRINT);
+		
+		// Resultaat terugsturen
+		echo json_encode($result);
 	}
 	
 	// Flowchart item bewerken
 	function editFlowchartItem($params)
 	{
-		$s_practice_id = $params[0];
-		$s_category_id = $params[1];
-		$s_item_id = $params[2];
-		$s_item_title = $params[3];
-		$s_item_text = $params[4];
-		if($s_practice_id == '1')
+		if(isLoggedIn() == true)
 		{
-			$result = array('status' => 'saved');
+			// Gegevens uit parameters halen
+			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_category_uuid = $params[0];
+			$s_item_id = $params[1];
+			$s_item_title = $params[2];
+			$s_item_text = $params[3];
+			
+			// Kijken of het is opgeslagen
+			if($s_practice_uuid == '1')
+			{
+				// Is opgeslagen
+				$result = array('inlog' => 'true', 'status' => 'false');
+			}
+			else
+			{
+				// Niet opgeslagen
+				$result = array('inlog' => 'true', 'status' => 'true');
+			}
 		}
 		else
 		{
-			$result = array('status' => 'not saved');
+			// Niet ingelogd
+			$result = array('inlog' => 'false');
 		}
-		echo json_encode($result, JSON_PRETTY_PRINT);
+		
+		// Resultaat terugsturen
+		echo json_encode($result);
 	}
 	
 	// Flowchart item verwijderen
 	function removeFlowchartItem($params)
 	{
-		$s_practice_id = $params[0];
-		$s_category_id = $params[1];
-		$s_item_id = $params[2];
-		if($s_practice_id == '1')
+		if(isLoggedIn() == true)
 		{
-			$result = array('status' => 'deleted');
+			// Gegevens uit parameters halen
+			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_category_id = $params[0];
+			$s_item_id = $params[1];
+			
+			// Kijken of het is verwijderd
+			if($s_practice_id == '1')
+			{
+				// Is verwijderd
+				$result = array('inlog' => 'true', 'status' => 'true');
+			}
+			else
+			{
+				// Is niet verwijderd
+				$result = array('inlog' => 'true', 'status' => 'false');
+			}
 		}
 		else
 		{
-			$result = array('status' => 'not deleted');
+			// Is niet ingelogd
+			$result = array('inlog' => 'false');
 		}
-		echo json_encode($result, JSON_PRETTY_PRINT);
+		
+		// Resultaat terugsturen
+		echo json_encode($result);
 	}
 ?>

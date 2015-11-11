@@ -8,6 +8,11 @@
 			login($params);
 		break;
 		
+		// Uitloggen
+		case 'logout':
+			logout();
+		break;
+		
 		// Wachtwoord vergeten
 		case 'forgotPassword':
 			$params = array($_POST['mail']);
@@ -160,6 +165,17 @@
 		{
 			$result = array('login' => 'false');
 		}
+		
+		echo json_encode($result);
+	}
+	
+	// Uitloggen
+	function logout()
+	{
+		$_SESSION['therapist_uuid'] = '';
+		$_SESSION['practice_uuid'] = '';
+		
+		$result = array('login' => 'false', 'status' => 'true');
 		
 		echo json_encode($result);
 	}

@@ -13,14 +13,16 @@
     <link rel="stylesheet" href="content/css/style.css" />
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+    <script src="content/js/master.js"></script>
 </head>
 
 <body>
-
     <div class="navbar-wrapper">
         <div class="container-fluid">
             <nav class="navbar navbar-fixed-top">
+
                 <div class="container">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">

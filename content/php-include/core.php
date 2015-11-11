@@ -561,7 +561,7 @@
 		}
 		else
 		{
-			$result = array('status' => 'not deleted'):
+			$result = array('status' => 'not deleted');
 		}
 		echo json_encode($result, JSON_PRETTY_PRINT);
 	}

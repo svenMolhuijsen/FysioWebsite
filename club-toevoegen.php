@@ -81,12 +81,12 @@
             event.preventDefault();
             $.post(s_CoreAdress + "?action=addSportclub", {
                     name: $('#tb_name').val(),
-                    adress: $("tb_adress").val(),
-                    zipcode: $("tb_zipcode").val(),
-                    location: $("tb_location").val(),
-                    phone: $("tb_phone").val(),
-                    mail: $("tb_mail").val(),
-                    contact_person: $("tb_adress").val(),
+                    address: $("#tb_address").val(),
+                    zipcode: $("#tb_zipcode").val(),
+                    location: $("#tb_location").val(),
+                    phone: $("#tb_phone").val(),
+                    mail: $("#tb_mail").val(),
+                    contact_person: $("#tb_contactperson").val(),
                 })
                 .done(function (data) {
                     data = $.parseJSON(data);

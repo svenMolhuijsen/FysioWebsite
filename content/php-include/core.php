@@ -4,7 +4,7 @@
 	$action = $_GET['action'];
 	switch($action)
 	{
-            /////////////////////////////////////////////////////////////////////////////////klaar
+        
 		// Inloggen
 		case 'login':
 			$params = array($_POST['mail'], $_POST['password']);
@@ -15,7 +15,7 @@
 		case 'logout':
 			logout();
 		break;
-		      /////////////////////////////////////////////////////////////////////////////////klaar
+		
 		// Wachtwoord vergeten
 		case 'forgotPassword':
 			$params = array($_POST['mail']);
@@ -27,7 +27,7 @@
 			$params = array($_POST['oldPassword'], $_POST['newPassword']);
 			changePassword($params);
 		break;
-		      /////////////////////////////////////////////////////////////////////////////////klaar
+		
 		// Sportclub toevoegen
 		case 'addSportclub':
 			$params = array($_POST['name'], $_POST['address'], $_POST['zipcode'], $_POST['location'], $_POST['phone'], $_POST['mail'], $_POST['contact_person']);
@@ -127,7 +127,7 @@
 			$params = array($_POST['category_uuid']);
 			deleteFlowChartCategory($params);
 		break;
-		/////////////////////////////////////////////////////////////////////////////////klaar
+		
 		// Flowchart item toevoegen
 		case 'addFlowchartItem':
 			$params = array($_POST['category_uuid'], $_POST['item_title'], $_POST['item_text']);
@@ -162,18 +162,18 @@
 		if($s_mail == 'test@test.nl' && $s_password == 'test')
 		{
 			// Kan inloggen
-			$result = array('login' => 'true', 'therapist_uuid' => '550e8400-e29b-41d4-a716-446655440000', 'practice_uuid' => '550e8400-e29b-41d4-a716-446655440123');
+			$a_result = array('login' => 'true', 'therapist_uuid' => '550e8400-e29b-41d4-a716-446655440000', 'practice_uuid' => '550e8400-e29b-41d4-a716-446655440123');
 			$_SESSION['therapist_uuid'] = '550e8400-e29b-41d4-a716-446655440000';
 			$_SESSION['practice_uuid'] = '550e8400-e29b-41d4-a716-446655440123';
 		}
 		else
 		{
 			// Kan niet inloggen
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Uitloggen
@@ -183,10 +183,10 @@
 		$_SESSION['therapist_uuid'] = '';
 		$_SESSION['practice_uuid'] = '';
 		
-		$result = array('login' => 'false', 'status' => 'true');
+		$a_result = array('login' => 'false', 'status' => 'true');
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Is ingelogd
@@ -217,16 +217,16 @@
 		if($s_mail == 'test@test.nl')
 		{
 			// Wachtwoord is gereset
-			$result = array('login' => 'false', 'status' => 'true');
+			$a_result = array('login' => 'false', 'status' => 'true');
 		}
 		else
 		{
 			// Wachtwoord is niet gereset
-			$result = array('login' => 'false', 'status' => 'false');
+			$a_result = array('login' => 'false', 'status' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);		
+		echo json_encode($a_result);		
 	}
 	
 	// Wachtwoord wijzigen
@@ -235,6 +235,7 @@
 		if(isLoggedIn() == true)
 		{
 			// Gegevens uit parameters halen
+			$s_practice_uuid = $_SESSION['practice_uuid'];
 			$s_therapist_uuid = $_SESSION['therapist_uuid'];
 			$s_oldPassword = $params[0];
 			$s_newPassword = $params[1];
@@ -243,22 +244,22 @@
 			if($s_therapist_uuid == '550e8400-e29b-41d4-a716-446655440000' && $s_oldPassword == 'test' && $s_newPassword == '')
 			{
 				// Wachtwoord is aangepast
-				$result = array('login' => 'true', 'status' => 'true');
+				$a_result = array('login' => 'true', 'status' => 'true');
 			}
 			else
 			{
 				// Wachtwoord is niet aangepast
-				$result = array('login' => 'true', 'status' => 'false');
+				$a_result = array('login' => 'true', 'status' => 'false');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Sportclub toevoegen
@@ -267,6 +268,7 @@
 		if(isLoggedIn() == true)
 		{
 			// Gegevens uit parameters halen
+			$s_practice_uuid = $_SESSION['practice_uuid'];
 			$s_therapist_uuid = $_SESSION['therapist_uuid'];
 			$s_name = $params[0];
 			$s_address = $params[1];
@@ -280,22 +282,22 @@
 			if($s_name == 'test')
 			{
 				// Is toegevoegd
-				$result = array('login' => 'true', 'status' => 'true');
+				$a_result = array('login' => 'true', 'status' => 'true');
 			}
 			else
 			{
 				// Niet toegevoegd
-				$result = array('login' => 'true', 'status' => 'false');
+				$a_result = array('login' => 'true', 'status' => 'false');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Bericht versturen
@@ -304,30 +306,31 @@
 		if(isLoggedIn() == true)
 		{
 			// Gegevens uit parameters halen
+			$s_practice_uuid = $_SESSION['practice_uuid'];
 			$s_therapist_uuid = $_SESSION['therapist_uuid'];
-			$s_sporter_id = $params[1];
+			$s_sporter_uuid = $params[1];
 			$s_chat_message = $params[2];
 			
 			// Kijken of het bericht is verzonden
 			if($s_therapist_uuid == '550e8400-e29b-41d4-a716-446655440000')
 			{
 				// Bericht is verzonden
-				$result = array('login' => 'true', 'status' => 'true');
+				$a_result = array('login' => 'true', 'status' => 'true');
 			}
 			else
 			{
 				// Bericht is niet verzonden
-				$result = array('login' => 'true', 'status' => 'false');
+				$a_result = array('login' => 'true', 'status' => 'false');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Standaard antwoord toevoegen
@@ -336,30 +339,31 @@
 		if(isLoggedIn() == true)
 		{
 			// Gegevens uit parameters halen
+			$s_practice_uuid = $_SESSION['practice_uuid'];
 			$s_therapist_uuid = $_SESSION['therapist_uuid'];
-			$s_sporter_id = $params[0];
+			$s_sporter_uuid = $params[0];
 			$s_chat_message = $params[1];
 			
 			// Kijken of het standaard antwoord is toegevoegd
 			if($s_therapist_uuid == '550e8400-e29b-41d4-a716-446655440000')
 			{
 				// Standaard antwoord is toegevoegd
-				$result = array('login' => 'true', 'status' => 'true');
+				$a_result = array('login' => 'true', 'status' => 'true');
 			}
 			else
 			{
 				// Standaard antwoord is niet toegevoegd
-				$result = array('login' => 'true', 'status' => 'false');
+				$a_result = array('login' => 'true', 'status' => 'false');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Standaard antwoord versturen
@@ -377,22 +381,22 @@
 			if($s_therapist_uuid == '550e8400-e29b-41d4-a716-446655440000')
 			{
 				// Standaard antwoord is verzonden
-				$result = array('login' => 'true', 'status' => 'true');
+				$a_result = array('login' => 'true', 'status' => 'true');
 			}
 			else
 			{
 				// Standaard antwoord is niet verzonden
-				$result = array('login' => 'true', 'status' => 'false');
+				$a_result = array('login' => 'true', 'status' => 'false');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Sporter wijzigen
@@ -401,32 +405,33 @@
 		if(isLoggedIn() == true)
 		{
 			// Gegevens uit parameters halen
-			$s_practice_id = $params[0];
-			$s_sporter_id = $params[1];
+			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_therapist_uuid = $_SESSION['therapist_uuid'];
+			$s_sporter_uuid = $params[1];
 			$s_firstName = $params[2];
 			$s_lastName = $params[3];
 			$s_age = $params[4];
 			
 			// Kijken of de sporter is aangepast
-			if($practice_id == '1')
+			if($practice_uuid == '550e8400-e29b-41d4-a716-446655440123')
 			{
 				// Is aangepast
-				$result = array('login' => 'true', 'status' => 'true');
+				$a_result = array('login' => 'true', 'status' => 'true');
 			}
 			else
 			{
 				// Is niet aangepast
-				$result = array('login' => 'true', 'status' => 'false');
+				$a_result = array('login' => 'true', 'status' => 'false');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	// Sportclub wijzigen
 	function changeSportclub($params)
@@ -436,7 +441,7 @@
 			// Gegevens uit parameters halen
 			$s_therapist_uuid = $_SESSION['therapist_uuid'];
 			$s_practice_uuid = $_SESSION['practice_uuid'];
-			$s_sportclub_id = $params[0];
+			$s_sportclub_uuid = $params[0];
 			$s_name = $params[1];
 			$s_address = $params[2];
 			$s_zipcode = $params[3];
@@ -446,25 +451,25 @@
 			$s_contact_person = $params[7];
 			
 			// Kijken of de sportclub is aangepast
-			if($s_sportclub_id == '1')
+			if($s_sportclub_uuid == '1')
 			{
 				// Is aangepast
-				$result = array('login' => 'true', 'status' => 'saved');
+				$a_result = array('login' => 'true', 'status' => 'saved');
 			}
 			else
 			{
 				// Niet aangepast
-				$result = array('login' => 'true', 'status' => 'not saved');
+				$a_result = array('login' => 'true', 'status' => 'not saved');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Overzicht van therapeuten
@@ -474,27 +479,28 @@
 		{
 			// Gegevens uit parameters halen
 			$practice_uuid = $_SESSION['practice_uuid'];
+			$therapist_uuid = $_SESSION['therapist_uuid'];
 			
 			// Kijken om welke praktijk het gaat
-			if($practice_uuid == "theClubId")
+			if($practice_uuid == '550e8400-e29b-41d4-a716-446655440123')
 			{
 				// Heeft therapeuten
-				$result = array('login' => 'true', 'users' => array('user' => array('therapist_uuid' => '11223344', 'firstname' => 'Henk', 'lastname' => 'Henkers', 'specialty' => 'Knie, enkel', 'date-started' => '1660-05-12', 'birth_date' => '1550-05-05', 'sex' => 'm', 'mail' => 'henk@henkers.nl', 'phone' => '0612345678'), 'user' => array('therapist_uuid' => '11223345', 'firstname' => 'Henk', 'lastname' => 'Henkers', 'specialty' => 'Hoofd, Schouder, Knie, Teen', 'date-started' => '1660-01-16', 'birth_date' => '1720-05-03', 'sex' => 'f', 'mail' => 'henk12@henkers.nl', 'phone' => '0612345678')));
+				$a_result = array('login' => 'true', 'users' => array('user' => array('therapist_uuid' => '11223344', 'firstname' => 'Henk', 'lastname' => 'Henkers', 'specialty' => 'Knie, enkel', 'date-started' => '1660-05-12', 'birth_date' => '1550-05-05', 'sex' => 'm', 'mail' => 'henk@henkers.nl', 'phone' => '0612345678'), 'user' => array('therapist_uuid' => '11223345', 'firstname' => 'Henk', 'lastname' => 'Henkers', 'specialty' => 'Hoofd, Schouder, Knie, Teen', 'date-started' => '1660-01-16', 'birth_date' => '1720-05-03', 'sex' => 'f', 'mail' => 'henk12@henkers.nl', 'phone' => '0612345678')));
 			}
 			else
 			{
 				// Geen therapeuten
-				$result = array('login' => 'false', 'status' => 'false');
+				$a_result = array('login' => 'false', 'status' => 'false');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Therapeut wijzigen
@@ -509,25 +515,25 @@
 			$i_isAdmin = $params[1];
 			
 			// Kijken of het is aangepast
-			if($s_practice_uuid == '1')
+			if($s_practice_uuid == '550e8400-e29b-41d4-a716-446655440123')
 			{
 				// Is aangepast
-				$result = array('login' => 'true', 'result' => 'true');
+				$a_result = array('login' => 'true', 'result' => 'true');
 			}
 			else
 			{
 				// Niet aangepast
-				$result = array('login' => 'true', 'result' => 'false');
+				$a_result = array('login' => 'true', 'result' => 'false');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Sportclubs weergeven
@@ -537,27 +543,28 @@
 		{
 			// Gegevens uit parameters halen
 			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_therapist_uuid = $_SESSION['therapist_uuid'];
 			
 			// Kijken of er sportclubs zijn
-			if($s_practice_uuid == '1')
+			if($s_practice_uuid == '550e8400-e29b-41d4-a716-446655440123')
 			{
 				// Zijn sportclubs
-				$result = array('login' => 'true', 'status' => 'true', 'sportclub' => array('name' => 'Ajax', 'contact_person' => 'Hans'), 'sportclub' => array('name' => 'PSV', 'contact_person' => 'HEnk'));
+				$a_result = array('login' => 'true', 'status' => 'true', 'sportclub' => array('name' => 'Ajax', 'contact_person' => 'Hans'), 'sportclub' => array('name' => 'PSV', 'contact_person' => 'HEnk'));
 			}
 			else
 			{
 				// Zijn geen sportclubs
-				$result = array('login' => 'true', 'status' => 'false');
+				$a_result = array('login' => 'true', 'status' => 'false');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Sporters weergeven
@@ -567,28 +574,29 @@
 		{
 			// Gegevens uit parameters halen
 			$s_practice_uuid = $_SESSION['practice_uuid'];
-			$s_sporter_id = $params[0];
+			$s_therapist_uuid = $_SESSION['therapist_uuid'];
+			$s_sporter_uuid = $params[0];
 			
 			// Kijken of er sporters zijn
-			if($s_practice_uuid == '1')
+			if($s_practice_uuid == '550e8400-e29b-41d4-a716-446655440123')
 			{
 				// Er zijn sporters
-				$result = array('login' => 'true', 'status' => 'true', 'sporter' => array('firstname' => 'Jan', 'lastname' => 'Janssen', 'age' => '13'), 'sporter' => array('firstname' => 'Hans', 'lastname' => 'Hanssen', 'age' => '36'));
+				$a_result = array('login' => 'true', 'status' => 'true', 'sporter' => array('firstname' => 'Jan', 'lastname' => 'Janssen', 'age' => '13'), 'sporter' => array('firstname' => 'Hans', 'lastname' => 'Hanssen', 'age' => '36'));
 			}
 			else
 			{
 				// Er zijn geen sporters
-				$result = array('login' => 'true', 'status' => 'false');
+				$a_result = array('login' => 'true', 'status' => 'false');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Sporter weergeven
@@ -598,28 +606,29 @@
 		{
 			// Gegevens uit parameters halen
 			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_therapist_uuid = $_SESION['therapist_uuid'];
 			$s_sporter_uuid = $params[0];
 			
 			// Kijken of er sporters zijn
-			if($s_practice_uuid == '1')
+			if($s_practice_uuid == '550e8400-e29b-41d4-a716-446655440123')
 			{
 				// Er zijn sporters
-				$result = array('login' => 'true', 'status' => 'true', 'firstname' => 'Jan', 'lastname' => 'Janssen', 'age' => '345');
+				$a_result = array('login' => 'true', 'status' => 'true', 'firstname' => 'Jan', 'lastname' => 'Janssen', 'age' => '345');
 			}
 			else
 			{
 				// Geen sporters
-				$result = array('login' => 'true', 'status' => 'false');
+				$a_result = array('login' => 'true', 'status' => 'false');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Sportclub verwijderen
@@ -629,28 +638,29 @@
 		{
 			// Gegevens uit parameters halen
 			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_therapist_uuid = $_SESSION['therapist_uuid'];
 			$s_sportclub_uuid = $params[0];
 			
 			// Kijken of de sportclub is verwijderd
-			if($s_practice_uuid == '1')
+			if($s_practice_uuid == '550e8400-e29b-41d4-a716-446655440123')
 			{
 				// Is verwijderd
-				$result = array('login' => 'true', 'status' => 'true');
+				$a_result = array('login' => 'true', 'status' => 'true');
 			}
 			else
 			{
 				// Niet verwijderd
-				$result = array('login' => 'true', 'status' => 'false');
+				$a_result = array('login' => 'true', 'status' => 'false');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Chat archiveren
@@ -660,28 +670,29 @@
 		{
 			// Gegevens uit parameters halen
 			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_therapist_uuid = $_SESSION['therapist_uuid'];
 			$s_chat_id = $params[0];
 			
 			// Kijken of de chat is gearchiveerd
-			if($s_practice_id == '1')
+			if($s_practice_uuid == '550e8400-e29b-41d4-a716-446655440123')
 			{
 				// Is gearchiveerd
-				$result = array('login' => 'true', 'status' => 'true');
+				$a_result = array('login' => 'true', 'status' => 'true');
 			}
 			else
 			{
 				// Niet gearchiveerd
-				$result = array('login' => 'true', 'status' => 'false');
+				$a_result = array('login' => 'true', 'status' => 'false');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Standaard antwoord wijzigen
@@ -696,25 +707,25 @@
 			$s_answer_text = $params[1];
 			
 			// Kijken of het antwoord is opgeslagen
-			if($s_practice_id == '1')
+			if($s_practice_uuid == '550e8400-e29b-41d4-a716-446655440123')
 			{
 				// Is opgeslagen
-				$result = array('login' => 'true', 'status' => 'true');
+				$a_result = array('login' => 'true', 'status' => 'true');
 			}
 			else
 			{
 				// Niet opgeslagen
-				$result = array('login' => 'true', 'status' => 'false');
+				$a_result = array('login' => 'true', 'status' => 'false');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Standaard antwoord verwijderen
@@ -724,28 +735,29 @@
 		{
 			// Gegevens uit parameters halen
 			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_therapist_uuid = $_SESSION['therapist_uuid'];
 			$s_auto_answer_uuid = $params[0];
 			
 			// Kijken of het antwoord is verwijderd
-			if($s_practice_uuid == '1')
+			if($s_practice_uuid == '550e8400-e29b-41d4-a716-446655440123')
 			{
 				// Is verwijderd
-				$result = array('login' => 'true', 'status' => 'true');
+				$a_result = array('login' => 'true', 'status' => 'true');
 			}
 			else
 			{
 				// Niet verwijderd				
-				$result = array('login' => 'true', 'status' => 'false');
+				$a_result = array('login' => 'true', 'status' => 'false');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Flowchart categorie opslaan
@@ -755,6 +767,7 @@
 		{
 			// Gegevens uit parameters halen
 			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_therapist_uuid = $_SESSION['therapist_uuid'];
 			$s_category_title = $params[0];
 			$s_category_description = $params[1];
 			
@@ -762,22 +775,22 @@
 			if($s_category_title == 'test')
 			{
 				// Is toegevoegd
-				$result = array('login' => 'true', 'status' => 'true');
+				$a_result = array('login' => 'true', 'status' => 'true');
 			}
 			else
 			{
 				// Is niet toegevoegd
-				$result = array('login' => 'true', 'status' => 'false');
+				$a_result = array('login' => 'true', 'status' => 'false');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Flowchart categorie bewerken
@@ -787,30 +800,31 @@
 		{
 			// Gegevens uit parameters halen
 			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_therapist_uuid = $_SESSION['therapist_uuid'];
 			$s_category_uuid = $params[0];
 			$s_category_title = $params[1];
 			$s_category_description = $params[2];
 			
 			// Kijken of de category is opgeslagen
-			if($s_practice_id == '1')
+			if($s_practice_uuid == '550e8400-e29b-41d4-a716-446655440123')
 			{
 				// Is opgeslagen
-				$result = array('login' => 'true', 'status' => 'true');
+				$a_result = array('login' => 'true', 'status' => 'true');
 			}
 			else
 			{
 				// Is niet opgeslagen
-				$result = array('login' => 'true', 'status' => 'false');
+				$a_result = array('login' => 'true', 'status' => 'false');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Flowchart categorie verwijderen
@@ -820,23 +834,24 @@
 		{
 			// Gegevens uit parameters halen
 			$s_practice_uuid = $_SESSION['practice_uuid'];
-			$s_category_id = $params[0];
+			$s_therapist_uuid = $_SESSION['therapist_uuid'];
+			$s_category_uuid = $params[0];
 			
 			// Kijken of de category is verwijderd
-			if($s_category_id == '1')
+			if($s_category_uuid == '550e8400-e29b-41d4-a716-446655440123')
 			{
 				// Is verwijderd
-				$result = array('login' => 'true', 'status' => 'true');
+				$a_result = array('login' => 'true', 'status' => 'true');
 			}
 			else
 			{
 				// Niet verwijderd
-				$result = array('login' => 'true', 'status' => 'false');
+				$a_result = array('login' => 'true', 'status' => 'false');
 			}
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Flowchart item toevoegen
@@ -846,30 +861,31 @@
 		{
 			// Gegevens uit parameters halen
 			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_therapist_uuid = $_SESSION['therapist_uuid'];
 			$s_category_uuid = $params[0];
 			$s_item_title = $params[1];
 			$s_item_text = $params[2];
 			
 			// Kijken of het item is toegevoegd
-			if($s_practice_id == '1')
+			if($s_practice_uuid == '550e8400-e29b-41d4-a716-446655440123')
 			{
 				// Is toegevoegd
-				$result = array('login' => 'true', 'status' => 'true');
+				$a_result = array('login' => 'true', 'status' => 'true');
 			}
 			else
 			{
 				// Niet toegevoegd
-				$result = array('login' => 'true', 'status' => 'false');
+				$a_result = array('login' => 'true', 'status' => 'false');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('login' => 'false');
+			$a_result = array('login' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Flowchart item bewerken
@@ -879,8 +895,9 @@
 		{
 			// Gegevens uit parameters halen
 			$s_practice_uuid = $_SESSION['practice_uuid'];
+			$s_therapist_uuid = $_SESSION['therapist_uuid'];
 			$s_category_uuid = $params[0];
-			$s_item_id = $params[1];
+			$s_item_uuid = $params[1];
 			$s_item_title = $params[2];
 			$s_item_text = $params[3];
 			
@@ -888,22 +905,22 @@
 			if($s_item_title == 'test')
 			{
 				// Is opgeslagen
-				$result = array('inlog' => 'true', 'status' => 'true');
+				$a_result = array('inlog' => 'true', 'status' => 'true');
 			}
 			else
 			{
 				// Niet opgeslagen
-				$result = array('inlog' => 'true', 'status' => 'false');
+				$a_result = array('inlog' => 'true', 'status' => 'false');
 			}
 		}
 		else
 		{
 			// Niet ingelogd
-			$result = array('inlog' => 'false');
+			$a_result = array('inlog' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 	
 	// Flowchart item verwijderen
@@ -913,28 +930,29 @@
 		{
 			// Gegevens uit parameters halen
 			$s_practice_uuid = $_SESSION['practice_uuid'];
-			$s_category_id = $params[0];
-			$s_item_id = $params[1];
+			$s_therapist_uuid = $_SESSION['therapist_uuid'];
+			$s_category_uuid = $params[0];
+			$s_item_uuid = $params[1];
 			
 			// Kijken of het is verwijderd
-			if($s_category_id == '1')
+			if($s_category_uuid == '1')
 			{
 				// Is verwijderd
-				$result = array('inlog' => 'true', 'status' => 'true');
+				$a_result = array('inlog' => 'true', 'status' => 'true');
 			}
 			else
 			{
 				// Is niet verwijderd
-				$result = array('inlog' => 'true', 'status' => 'false');
+				$a_result = array('inlog' => 'true', 'status' => 'false');
 			}
 		}
 		else
 		{
 			// Is niet ingelogd
-			$result = array('inlog' => 'false');
+			$a_result = array('inlog' => 'false');
 		}
 		
 		// Resultaat terugsturen
-		echo json_encode($result);
+		echo json_encode($a_result);
 	}
 ?>
